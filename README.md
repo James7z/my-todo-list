@@ -139,7 +139,6 @@ The home page displays the to-do tasks.
 
 You can create new task.
 
-
 <img src="./my-todo-list-wireframe/Modal Menu for update and delete task .png" alt="Logo" width="200" height="300">
 
 You can check you task as it has been done. And you can also may update or delete your task.
