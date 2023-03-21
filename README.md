@@ -192,15 +192,13 @@ Don't forget to give the project a star! Thanks again!
 
 
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 
 ## Contact
 <pre>
-James -
+James Zhou-
 </pre>
 Project Link: [https://github.com/James7z/my-todo-list.git](https://github.com/NRH-AA/Python_Project.git)
 
