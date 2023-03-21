@@ -127,7 +127,7 @@
 
 ## Usage
 
-<img src="./my-todo-list-wireframe/Login.png" alt="Logo" width="250" height="300">
+<img src="./my-todo-list-wireframe/login.png" alt="Logo" width="250" height="300">
 
 Create your account with secure hashed password protection.
 
@@ -152,6 +152,9 @@ You may comment your task.
 
 You can create a project to organize your tasks
 
+<img src="./my-todo-list-wireframe/Add-Label.png" alt="Logo" width="200" height="150">
+
+You can creat labels to help you organize your tasks
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,6 +166,7 @@ You can create a project to organize your tasks
 - [ ] Tasks
 - [ ] Projecs
 - [ ] Comments
+- [ ] Labels
 
 
 See the [open issues](https://github.com/NRH-AA/Python_Project.git/issues) for a full list of proposed features (and known issues).
