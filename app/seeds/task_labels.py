@@ -1,4 +1,4 @@
-from app.models import db, Task, Label, environment, SCHEMA
+from app.models import db, Task_label, Label, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
@@ -6,19 +6,14 @@ from sqlalchemy.sql import text
 # color:  Red, Orange, Yellow, Blue, Green, Teal, Grey, Lavender
 # view_type: List, Board
 def seed_task_labels():
-    tasks = []
-    for i in range(1, 11):
-        task = Task.query.get(i)
-        tasks.append(task)
+    task_label1 = Task_label(task_id=1, label_id=1)
+    task_label2 = Task_label(task_id=1, label_id=2)
+    task_label3 = Task_label(task_id=2, label_id=1)
 
-    labels = []
-    for i in range(1, 11):
-        label = Label.query.get(i)
-        labels.append(label)
+    task_labels = [task_label1, task_label2, task_label3]
 
-    tasks[0].labels.append(labels[0])
-    tasks[0].labels.append(labels[1])
-    tasks[1].labels.append(labels[1])
+    add_task_labels = [db.session.add(task_label)
+                       for task_label in task_labels]
 
     db.session.commit()
 

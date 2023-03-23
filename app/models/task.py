@@ -3,14 +3,14 @@ from datetime import datetime
 from app.models import User, Project
 
 
-task_labels = db.Table(
-    'task_labels',
-    db.Model.metadata,
-    db.Column('task_id', db.Integer, db.ForeignKey(
-        add_prefix_for_prod('tasks.id')), primary_key=True),
-    db.Column('label_id', db.Integer, db.ForeignKey(
-        add_prefix_for_prod('labels.id')), primary_key=True)
-)
+# task_labels = db.Table(
+#     'task_labels',
+#     db.Model.metadata,
+#     db.Column('task_id', db.Integer, db.ForeignKey(
+#         add_prefix_for_prod('tasks.id')), primary_key=True),
+#     db.Column('label_id', db.Integer, db.ForeignKey(
+#         add_prefix_for_prod('labels.id')), primary_key=True)
+# )
 
 
 class Task(db.Model):
