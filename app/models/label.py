@@ -15,10 +15,10 @@ class Label(db.Model):
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
-    labeled_tasks = db.relationship(
+    tasks = db.relationship(
         "Task",
         secondary="task_labels",
-        back_populates="task_labels"
+        back_populates="labels"
     )
 
     def to_dict(self):

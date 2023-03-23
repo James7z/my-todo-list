@@ -16,9 +16,9 @@ def seed_task_labels():
         label = Label.query.get(i)
         labels.append(label)
 
-    tasks[0].task_labels.append(labels[0])
-    tasks[0].task_labels.append(labels[1])
-    tasks[1].task_labels.append(labels[1])
+    tasks[0].labels.append(labels[0])
+    tasks[0].labels.append(labels[1])
+    tasks[1].labels.append(labels[1])
 
     db.session.commit()
 
