@@ -33,6 +33,7 @@ class Task(db.Model):
     user = db.relationship("User", back_populates="tasks")
     project = db.relationship("Project", back_populates="tasks")
     comments = db.relationship("Comment", back_populates="task")
+    task_labels = db.relationship("Task_label")
     labels = db.relationship(
         "Label",
         secondary="task_labels",
