@@ -3,14 +3,17 @@ from datetime import datetime
 from app.models import User, Project
 
 
-# task_labels = db.Table(
-#     'task_labels',
-#     db.Model.metadata,
-#     db.Column('task_id', db.Integer, db.ForeignKey(
-#         add_prefix_for_prod('tasks.id')), primary_key=True),
-#     db.Column('label_id', db.Integer, db.ForeignKey(
-#         add_prefix_for_prod('labels.id')), primary_key=True)
-# )
+task_labels = db.Table(
+    'task_labels',
+    db.Model.metadata,
+    db.Column('task_id', db.Integer, db.ForeignKey(
+        add_prefix_for_prod('tasks.id')), primary_key=True),
+    db.Column('label_id', db.Integer, db.ForeignKey(
+        add_prefix_for_prod('labels.id')), primary_key=True)
+)
+
+if environment == 'production':
+    task_labels.schema = SCHEMA
 
 
 class Task(db.Model):
@@ -33,7 +36,6 @@ class Task(db.Model):
     user = db.relationship("User", back_populates="tasks")
     project = db.relationship("Project", back_populates="tasks")
     comments = db.relationship("Comment", back_populates="task")
-    task_labels = db.relationship("Task_label")
     labels = db.relationship(
         "Label",
         secondary="task_labels",
