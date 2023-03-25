@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import './Homepage.css';
 import { getUsersTasks } from '../../store/task';
-import SingleTask from './SingleTask';
-
+import SingleTask from '../SingleTask';
+import OpenModalButton from '../OpenModalButton';
+import TaskForm from '../TaskForm';
 
 function HomePage({ isLoaded }) {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function HomePage({ isLoaded }) {
     return (
         <>
             <h2>
-                Tasks
+                Inbox
             </h2>
             <div className='home-page-tasks-container'>
                 {tasks && tasks.map((task, idx) => (
@@ -30,6 +31,13 @@ function HomePage({ isLoaded }) {
                     </div>
                 )
                 )}
+            </div>
+            <div>
+                <OpenModalButton
+                    buttonText="Add Task"
+
+                    modalComponent={<TaskForm />}
+                />
             </div>
         </>
     );

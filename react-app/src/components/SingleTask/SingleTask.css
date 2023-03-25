@@ -1,0 +1,35 @@
+.single-task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+    margin: 2px 20%;
+
+}
+
+#check-task-button {
+    border: none;
+    background-color: white;
+    align-self: flex-start;
+}
+
+.single-task-content-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+.single-task-date-comment-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.single-task-date-comment-container span {
+    margin: 0 5%;
+}
+
+.single-task-name-due-date-container {
+    width: 60%;
+}
