@@ -14,7 +14,7 @@ function SingleTask({ info }) {
             <div className='single-task-container' >
                 <span className='single-task-content-container'>
                     <button id='check-task-button' onClick={handleCheckTask()}>
-                        <i class="fa-regular fa-circle" ></i>
+                        <i class="fa-regular fa-circle fa-xl" ></i>
                     </button>
                     <span className='single-task-name-due-date-container'>
                         <div>

@@ -21,24 +21,30 @@ function HomePage({ isLoaded }) {
 
     return (
         <>
-            <h2>
-                Inbox
-            </h2>
-            <div className='home-page-tasks-container'>
-                {tasks && tasks.map((task, idx) => (
-                    <div className="home-page-task" key={idx}>
-                        <SingleTask info={[task, session]} />
-                    </div>
-                )
-                )}
-            </div>
-            <div>
-                <OpenModalButton
-                    buttonText="Add Task"
 
-                    modalComponent={<TaskForm />}
-                />
+            <div className='home-page-content-container'>
+
+                <div className='home-page-tasks-container'>
+                    <h3>
+                        Inbox
+                    </h3>
+                    <ul>
+                        {tasks && tasks.map((task, idx) => (
+                            <li className="home-page-task" key={idx}>
+                                <SingleTask info={[task, session]} />
+                            </li>
+                        )
+                        )}
+                    </ul>
+                    <div>
+                        <OpenModalButton
+                            buttonText="Add Task"
+                            modalComponent={<TaskForm />}
+                        />
+                    </div>
+                </div>
             </div>
+
         </>
     );
 }

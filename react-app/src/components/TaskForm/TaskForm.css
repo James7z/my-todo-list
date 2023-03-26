@@ -1,0 +1,19 @@
+.task-editor-form>div {
+    margin: 4px 4px;
+}
+
+.task-editor-input-fields {
+    margin: 10px 10px 10px;
+}
+
+.task-editor-due-date-priority {
+    display: flex;
+}
+
+.task-editor-due-date-priority>div {
+    margin: 0 4px;
+}
+
+.task_editor__footer {
+    text-align: right;
+}
