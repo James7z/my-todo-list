@@ -1,5 +1,21 @@
+.hidden {
+    display: none;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
 .task-editor-form>div {
     margin: 4px 4px;
+}
+
+.task-editor-form {
+    background-color: skyblue;
+    border-radius: 5px;
+    width: 350px;
+    padding: 2px 5px;
+
 }
 
 .task-editor-input-fields {
@@ -8,6 +24,7 @@
 
 .task-editor-due-date-priority {
     display: flex;
+    justify-content: space-between;
 }
 
 .task-editor-due-date-priority>div {
@@ -15,5 +32,6 @@
 }
 
 .task_editor__footer {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
 }

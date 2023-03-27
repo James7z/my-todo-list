@@ -1,4 +1,7 @@
 import './SingleTask.css';
+import DeleteTaskModal from '../DeleteTaskModal';
+import OpenModalButton from '../OpenModalButton';
+import TaskForm from '../TaskForm';
 
 function SingleTask({ info }) {
 
@@ -34,9 +37,10 @@ function SingleTask({ info }) {
                 </span>
                 <span className='task-buttons-container'>
                     <span>
-                        <button>
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </button>
+                        <OpenModalButton
+                            icon={"fa-regular fa-pen-to-square"}
+                            modalComponent={<TaskForm userId={session.user.id} task={task} formType="Update a Task" />}
+                        />
                     </span>
                     <span>
                         <button>
@@ -44,9 +48,11 @@ function SingleTask({ info }) {
                         </button>
                     </span>
                     <span>
-                        <button>
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
+                        <OpenModalButton
+                            icon={"fa-solid fa-trash-can"}
+                            modalComponent={<DeleteTaskModal taskId={task.id} userId={session.user.id} />}
+                        />
+
                     </span>
                 </span>
 
