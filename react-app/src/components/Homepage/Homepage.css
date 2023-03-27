@@ -1,0 +1,14 @@
+.home-page-content-container {}
+
+.home-page-tasks-container {
+
+    max-width: 800px;
+    margin: 3px auto;
+
+}
+
+.home-page-task {
+    list-style: none;
+    /* margin: 3px 10%; */
+    border-bottom: 1px solid #f0f0f0;
+}
