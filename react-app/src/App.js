@@ -8,6 +8,7 @@ import HomePage from "./components/Homepage";
 import WelcomePage from "./components/WelcomePage";
 import Navigation from "./components/Navigation";
 
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,11 +19,10 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+
       {isLoaded && (
+
         <Switch>
-          <Route path="/login" >
-            <LoginFormPage />
-          </Route>
           <Route path="/" exact>
             <WelcomePage />
           </Route>

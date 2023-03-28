@@ -6,6 +6,7 @@ import { getUserTasks } from '../../store/task';
 import SingleTask from '../SingleTask';
 import OpenModalButton from '../OpenModalButton';
 import TaskForm from '../TaskForm';
+import LeftMenu from '../LeftMenu';
 
 function HomePage({ isLoaded }) {
     const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function HomePage({ isLoaded }) {
         <>
 
             <div className='home-page-content-container'>
+                <div>
+                    <LeftMenu />
+                </div>
 
                 <div className='home-page-tasks-container'>
                     <h3>

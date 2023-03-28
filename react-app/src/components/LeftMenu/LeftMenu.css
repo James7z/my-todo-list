@@ -1,0 +1,18 @@
+#left-menu {
+    display: flex;
+}
+
+.resize_handle {
+    box-sizing: border-box;
+    width: 5px;
+    margin-left: -2px;
+    height: calc(100vh - 44px);
+    height: calc(100vh - var(--top-bar-height));
+    padding-top: var(--left-menu-padding-top);
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: transparent;
+    z-index: var(--stacking-order-left-menu);
+    cursor: col-resize;
+}

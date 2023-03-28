@@ -68,6 +68,23 @@ export const updateATask = (task_id, taskObj) => async (dispatch) => {
 };
 
 
+export const checkATask = (task_id) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/check/${task_id}`, {
+        method: "PUT",
+
+    });
+    if (response.ok) {
+        const data = await response.json();
+        // console.log(data)
+        if (data.errors) {
+            return;
+        }
+        // dispatch(updateSingleTask(data));
+        dispatch(getUserTasks(data.user_id));
+        return data
+    }
+};
+
 
 export const deleteTask = (taskId, userId) => async (dispatch) => {
     const response = await fetch(`/api/tasks/${taskId}`, {
