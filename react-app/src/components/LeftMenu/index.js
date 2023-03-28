@@ -5,15 +5,31 @@ import './LeftMenu.css';
 
 function LeftMenu() {
     const sessionUser = useSelector(state => state.session.user);
-    // const projects =
+    const projects = sessionUser.projects
+
 
     return (
         <>
             <div id="left-menu">
                 <div>
                     <div data-expansion-panel-header="true" focus-marker-enabled-within>
-                        Project
+                        <div>Project</div>
+                        {projects && projects.map((project, idx) => (
+                            <NavLink to={`/projects/${project.id}`}>
+                                <div>
+                                    {project.project_name}
+                                </div>
+                            </NavLink>
+
+                        ))}
+
+
                     </div>
+
+
+
+
+
                 </div>
             </div>
             <div>

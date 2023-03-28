@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import HomePage from "./components/Homepage";
 import WelcomePage from "./components/WelcomePage";
 import Navigation from "./components/Navigation";
+import ProjectTasks from "./components/ProjectTasks";
 
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
           <Route path="/home" exact>
             <HomePage />
           </Route>
+          <Route path='/projects/:projectId' >
+            <ProjectTasks />
+          </Route>
+
         </Switch>
       )}
     </>

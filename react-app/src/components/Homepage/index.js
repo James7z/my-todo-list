@@ -26,7 +26,7 @@ function HomePage({ isLoaded }) {
         <>
 
             <div className='home-page-content-container'>
-                <div>
+                <div className='home-page-left-menu'>
                     <LeftMenu />
                 </div>
 
@@ -52,6 +52,9 @@ function HomePage({ isLoaded }) {
                             <TaskForm />
                         </div> */}
                     </div>
+                </div>
+                <div className='home-page-right-menu'>
+
                 </div>
             </div>
 
