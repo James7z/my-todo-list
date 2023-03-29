@@ -30,3 +30,13 @@ class Project(db.Model):
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt,
         }
+
+    def to_dict2(self):
+        return {
+            "id": self.id,
+            "project_name": self.project_name,
+            "color": self.color,
+            "view_type": self.view_type,
+            "user_id": self.user_id,
+            'tasks': [task.to_dict() for task in self.tasks]
+        }

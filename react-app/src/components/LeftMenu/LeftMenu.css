@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.project-tasks-link {
+    text-decoration: none;
+}
+
 .resize_handle {
     box-sizing: border-box;
     width: 5px;
@@ -15,4 +19,73 @@
     background-color: transparent;
     z-index: var(--stacking-order-left-menu);
     cursor: col-resize;
+}
+
+.project-list-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-action-menu-container {
+    /* width: 24px;
+    height: 24px;
+    position: relative;
+    left: 20px;
+    list-style: none;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08); */
+
+
+    position: absolute;
+    /* inset: 0px 0px 10px 0px; */
+    /* transform: translate(182px, 292px); */
+    list-style: none;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08);
+    width: 150px;
+    max-height: 80px;
+
+    background-color: white;
+    font-size: 15px;
+
+}
+
+.project-action-menu-list li {
+    cursor: pointer;
+}
+
+
+.project-action-menu-list {
+    list-style: none;
+}
+
+
+/* Delete project Modal  */
+#delete-project-modal-prompt {
+    text-align: center;
+}
+
+#delete-project-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+}
+
+#cancel-delete-project-button,
+#delete-project-button {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancel-delete-project-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#delete-project-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
 }

@@ -7,8 +7,8 @@ import './TaskForm.css'
 
 export default function TaskForm({ task, formType, userId }) {
     // Results below assume UTC timezone - your results may vary
-    console.log("---------------------------")
-    console.log(task.priority)
+    // console.log("---------------------------")
+    // console.log(task.priority)
     const dateStr = new Intl.DateTimeFormat('en-US').format(Date.now())
 
     const [taskName, setTaskName] = useState(task.task_name);
@@ -24,7 +24,6 @@ export default function TaskForm({ task, formType, userId }) {
     if (formType === "Create a New Task") buttonStr = "Submit";
     if (formType === "Update a Task") {
         buttonStr = "Update";
-
     }
 
     const handleSubmit = async (e) => {

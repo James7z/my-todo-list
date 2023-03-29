@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './LeftMenu.css';
+import ProjectForm from '../ProjectForm';
+import OpenModalButton from '../OpenModalButton';
+import ProjectActionMenu from './ProjectActionMenu';
 
 function LeftMenu() {
+
     const sessionUser = useSelector(state => state.session.user);
-    const projects = sessionUser.projects
+    const projects = useSelector(state => state.project.UserProjects);
+    const project = { project_name: '', color: '', view_type: '' }
 
 
     return (
@@ -15,21 +20,30 @@ function LeftMenu() {
                     <div data-expansion-panel-header="true" focus-marker-enabled-within>
                         <div>Project</div>
                         {projects && projects.map((project, idx) => (
-                            <NavLink to={`/projects/${project.id}`}>
-                                <div>
-                                    {project.project_name}
+                            <>
+                                <div className='project-list-container'>
+                                    <NavLink to={`/projects/${project.id}`} className="project-tasks-link">
+                                        <div>
+                                            {project.project_name}
+                                        </div>
+                                    </NavLink>
+                                    <span  >
+                                        <ProjectActionMenu project={project} userId={sessionUser.id} />
+                                    </span>
                                 </div>
-                            </NavLink>
 
+                            </>
                         ))}
 
+                        <div>
+                            <OpenModalButton
+                                buttonText="Add Project"
+                                modalComponent={<ProjectForm userId={sessionUser.id} project={project} formType="Create a New Project" />}
+                            />
+
+                        </div>
 
                     </div>
-
-
-
-
-
                 </div>
             </div>
             <div>

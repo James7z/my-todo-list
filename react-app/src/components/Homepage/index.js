@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import './Homepage.css';
 import { getUserTasks } from '../../store/task';
+import { getUserProjects } from '../../store/project';
 import SingleTask from '../SingleTask';
 import OpenModalButton from '../OpenModalButton';
 import TaskForm from '../TaskForm';
@@ -18,13 +19,13 @@ function HomePage({ isLoaded }) {
 
     useEffect(() => {
         dispatch(getUserTasks(sessionUser.id))
+        dispatch(getUserProjects(sessionUser.id))
     }, [dispatch])
 
     if (!sessionUser) return <Redirect to="/" />;
 
     return (
         <>
-
             <div className='home-page-content-container'>
                 <div className='home-page-left-menu'>
                     <LeftMenu />

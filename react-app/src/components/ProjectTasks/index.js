@@ -5,6 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import './ProjectTasks.css'
 import { getSingleProject } from "../../store/project";
 import SingleTask from "../SingleTask";
+import TaskForm from "../TaskForm";
 
 export default function ProjectTasks() {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function ProjectTasks() {
     const project = useSelector(state => {
         if (state.project) return state.project.SingleProject
     })
+    const task = { task_name: '', description: '', priority: '', due_date: '' }
 
 
     useEffect(() => {
@@ -46,13 +48,13 @@ export default function ProjectTasks() {
                     )
                     )}
                 </ul>
-                {/* <div>
+                <div>
                     <OpenModalButton
                         buttonText="Add Task"
-                        modalComponent={<TaskForm userId={sessionUser.id} task={task} formType="Create a New Task" />}
+                        modalComponent={<TaskForm userId={session.user.id} task={task} formType="Create a New Task" />}
                     />
 
-                </div> */}
+                </div>
             </div>
             <div className='home-page-right-menu'>
 
