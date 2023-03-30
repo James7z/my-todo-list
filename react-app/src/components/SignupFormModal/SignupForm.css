@@ -1,0 +1,27 @@
+label {
+    background-color: rgb(212, 237, 237);
+    color: rgb(46, 3, 3);
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 2px;
+
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+
+.sign-up-form button {
+    width: 50%;
+    margin: 0 25%;
+}
