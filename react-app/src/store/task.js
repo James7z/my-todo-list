@@ -27,12 +27,13 @@ export const getUserTasks = (userId) => async (dispatch) => {
 };
 
 export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
-    const { task_name, description, priority, due_date } = taskObj
+    const { task_name, description, priority, due_date, project_id } = taskObj
+    console.log("*****************project id", project_id)
     const response = await fetch(`/api/users/${user_id}/tasks`, {
         method: "POST",
         headers: { "Content-Type": "application/json", },
         body: JSON.stringify({
-            task_name, description, priority, due_date
+            task_name, description, priority, due_date, project_id
         })
     });
     if (response.ok) {
@@ -47,12 +48,12 @@ export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
 };
 
 export const updateATask = (task_id, taskObj) => async (dispatch) => {
-    const { task_name, description, priority, due_date } = taskObj
+    const { task_name, description, priority, due_date, project_id } = taskObj
     const response = await fetch(`/api/tasks/${task_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", },
         body: JSON.stringify({
-            task_name, description, priority, due_date
+            task_name, description, priority, due_date, project_id
         })
     });
     if (response.ok) {
@@ -67,6 +68,23 @@ export const updateATask = (task_id, taskObj) => async (dispatch) => {
     }
 };
 
+
+export const checkATask = (task_id) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/check/${task_id}`, {
+        method: "PUT",
+
+    });
+    if (response.ok) {
+        const data = await response.json();
+        // console.log(data)
+        if (data.errors) {
+            return;
+        }
+        // dispatch(updateSingleTask(data));
+        dispatch(getUserTasks(data.user_id));
+        return data
+    }
+};
 
 
 export const deleteTask = (taskId, userId) => async (dispatch) => {

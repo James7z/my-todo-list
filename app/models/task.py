@@ -49,6 +49,7 @@ class Task(db.Model):
             "description": self.description,
             "priority": self.priority,
             "due_date": self.due_date.strftime("%A %d. %B"),
+            "due_date_string": self.due_date,
             "user_id": self.user_id,
             "project_id": self.project_id,
             "checked": self.checked,

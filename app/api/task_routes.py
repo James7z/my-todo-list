@@ -24,6 +24,24 @@ def get_tasks2():
     # print(tasks)
     return [task.to_dict() for task in tasks]
 
+# Check a task
+
+
+@task_routes.route('/check/<int:task_id>', methods=['PUT'])
+@login_required
+def check_task(task_id):
+    task = Task.query.get(task_id)
+
+    if not task:
+        return {"errors": ["Invalid Edit Request"]}
+
+    task.checked = not task.checked
+    task.updatedAt = datetime.now()
+
+    db.session.commit()
+    ret = Task.query.get(task_id)
+    return ret.to_dict()
+
 
 # Update task
 @task_routes.route('/<int:task_id>', methods=['PUT'])
@@ -62,6 +80,8 @@ def edit_task(task_id):
 
 
 # Delete task route
+
+
 @task_routes.route('/<int:task_id>', methods=['DELETE'])
 @login_required
 def delete_task(task_id):

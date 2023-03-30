@@ -1,9 +1,17 @@
-.home-page-content-container {}
+.home-page-content-container {
+    display: flex;
+    flex-grow: 1;
+
+}
+
+.home-page-left-menu {
+    width: 340px;
+}
 
 .home-page-tasks-container {
 
-    max-width: 800px;
-    margin: 3px auto;
+    width: 800px;
+    margin-left: 10px;
 
 }
 
@@ -11,4 +19,8 @@
     list-style: none;
     /* margin: 3px 10%; */
     border-bottom: 1px solid #f0f0f0;
+}
+
+.project-list-container {
+    width: 220px;
 }

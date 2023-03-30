@@ -1,14 +1,16 @@
+import { useDispatch } from "react-redux";
 import './SingleTask.css';
 import DeleteTaskModal from '../DeleteTaskModal';
 import OpenModalButton from '../OpenModalButton';
 import TaskForm from '../TaskForm';
+import { checkATask } from '../../store/task';
 
 function SingleTask({ info }) {
-
     const [task, session] = info;
-
+    const dispatch = useDispatch();
     const handleCheckTask = () => {
         // window.alert("Task id is", task.id)
+        dispatch(checkATask(task.id));
     };
 
     return (
@@ -16,7 +18,7 @@ function SingleTask({ info }) {
 
             <div className='single-task-container' >
                 <span className='single-task-content-container'>
-                    <button id='check-task-button' onClick={handleCheckTask()}>
+                    <button id='check-task-button' onClick={handleCheckTask} >
                         <i class="fa-regular fa-circle fa-xl" ></i>
                     </button>
                     <span className='single-task-name-due-date-container'>
@@ -36,10 +38,10 @@ function SingleTask({ info }) {
                     </span>
                 </span>
                 <span className='task-buttons-container'>
-                    <span>
+                    <span title="Update task">
                         <OpenModalButton
                             icon={"fa-regular fa-pen-to-square"}
-                            modalComponent={<TaskForm userId={session.user.id} task={task} formType="Update a Task" />}
+                            modalComponent={<TaskForm user={session.user} task={task} formType="Update a Task" />}
                         />
                     </span>
                     <span>

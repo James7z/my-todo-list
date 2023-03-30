@@ -7,6 +7,8 @@ import { authenticate } from "./store/session";
 import HomePage from "./components/Homepage";
 import WelcomePage from "./components/WelcomePage";
 import Navigation from "./components/Navigation";
+import ProjectTasks from "./components/ProjectTasks";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -18,17 +20,20 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+
       {isLoaded && (
+
         <Switch>
-          <Route path="/login" >
-            <LoginFormPage />
-          </Route>
           <Route path="/" exact>
             <WelcomePage />
           </Route>
           <Route path="/home" exact>
             <HomePage />
           </Route>
+          <Route path='/projects/:projectId' >
+            <ProjectTasks />
+          </Route>
+
         </Switch>
       )}
     </>

@@ -5,18 +5,22 @@ import { useModal } from "../../context/Modal";
 import { createAUserTask, updateATask } from "../../store/task";
 import './TaskForm.css'
 
-export default function TaskForm({ task, formType, userId }) {
+export default function TaskForm({ task, formType, user }) {
     // Results below assume UTC timezone - your results may vary
-    console.log("---------------------------")
-    console.log(task.priority)
-    const dateStr = new Intl.DateTimeFormat('en-US').format(Date.now())
+    // console.log("---------------------------")
 
+
+    const dateStr = new Intl.DateTimeFormat('en-US').format(Date.now())
+    // const dateStr2 = new Intl.DateTimeFormat('en-US').format(new Date(task.due_date_string))
+    // console.log(dateStr2)
     const [taskName, setTaskName] = useState(task.task_name);
     const [description, setDescription] = useState(task.description);
-    const [dueDateStr, setDueDateStr] = useState(dateStr)
+    const [dueDateStr, setDueDateStr] = useState(task.due_date ? new Intl.DateTimeFormat('en-US').format(new Date(task.due_date_string)) : dateStr)
     const [priority, setPriority] = useState(task.priority || "4")
+    const [project_id, setProjectId] = useState(task.project_id || null)
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
+    const projects = user.projects;
 
     const dispatch = useDispatch();
 
@@ -24,16 +28,15 @@ export default function TaskForm({ task, formType, userId }) {
     if (formType === "Create a New Task") buttonStr = "Submit";
     if (formType === "Update a Task") {
         buttonStr = "Update";
-
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         let dueDate = (new Date(dueDateStr)).toISOString().slice(0, 10);
-        const taskObj = { task_name: taskName, description: description, priority: priority, due_date: dueDate }
+        const taskObj = { task_name: taskName, description: description, priority: priority, due_date: dueDate, project_id: project_id }
         console.log(taskObj)
         if (formType === "Create a New Task") {
-            dispatch(createAUserTask(userId, taskObj))
+            dispatch(createAUserTask(user.id, taskObj))
                 .then(closeModal)
         }
         if (formType === "Update a Task") {
@@ -108,8 +111,11 @@ export default function TaskForm({ task, formType, userId }) {
 
                 <div className="task_editor__footer">
                     <span>
-                        <select name="task-form-project" id="task-form-project" >
-                            <option value="Inbox">Inbox</option>
+                        <select name="task-form-project" id="task-form-project" onChange={(e) => setProjectId(Number(e.target.value))} >
+                            <option value={null}>Inbox</option>
+                            {projects.map(project => (
+                                <option value={`${project.id}`} selected={project.id == task.project_id}>{project.project_name}</option>
+                            ))}
                         </select>
                     </span>
                     <span>
