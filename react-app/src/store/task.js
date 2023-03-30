@@ -28,7 +28,6 @@ export const getUserTasks = (userId) => async (dispatch) => {
 
 export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
     const { task_name, description, priority, due_date, project_id } = taskObj
-    console.log("*****************project id", project_id)
     const response = await fetch(`/api/users/${user_id}/tasks`, {
         method: "POST",
         headers: { "Content-Type": "application/json", },
@@ -38,7 +37,6 @@ export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        // console.log(data)
         if (data.errors) {
             return;
         }
@@ -76,7 +74,6 @@ export const checkATask = (task_id) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        // console.log(data)
         if (data.errors) {
             return;
         }

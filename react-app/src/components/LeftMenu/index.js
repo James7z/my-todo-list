@@ -10,7 +10,7 @@ import DeleteProjectModal from './DeleteProjectModal';
 
 function LeftMenu() {
 
-    const [openProjectList, setOpenProjectList] = useState(false);
+    const [openProjectList, setOpenProjectList] = useState(true);
     const sessionUser = useSelector(state => state.session.user);
     const projects = useSelector(state => state.project.UserProjects);
     const project = { project_name: '', color: '', view_type: '' }

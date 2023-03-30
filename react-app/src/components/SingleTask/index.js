@@ -18,18 +18,21 @@ function SingleTask({ info }) {
 
             <div className='single-task-container' >
                 <span className='single-task-content-container'>
-                    <button id='check-task-button' onClick={handleCheckTask} >
+                    <button id='check-task-button' onClick={handleCheckTask} title="Check task">
                         <i class="fa-regular fa-circle fa-xl" ></i>
                     </button>
                     <span className='single-task-name-due-date-container'>
                         <div>
                             {task.task_name}
                         </div>
-                        <div className='single-task-date-comment-container'>
+                        <div className="single-task-description">
+                            {task.description}
+                        </div>
+                        <div className='single-task-date-comment-container' >
                             <span>
                                 Due date: {task.due_date}
                             </span>
-                            <span>
+                            <span onClick={() => window.alert("Comments feature coming soon.")} title="Comment on task">
                                 <i class="fa-regular fa-comment"></i>
                             </span>
 
@@ -45,7 +48,7 @@ function SingleTask({ info }) {
                         />
                     </span>
                     <span>
-                        <button>
+                        <button onClick={() => window.alert("Comments feature coming soon.")} title="Comment on task">
                             <i class="fa-regular fa-comment"></i>
                         </button>
                     </span>

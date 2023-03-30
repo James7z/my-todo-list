@@ -8,16 +8,12 @@ import './TaskForm.css'
 export default function TaskForm({ task, formType, user }) {
     // Results below assume UTC timezone - your results may vary
     // console.log("---------------------------")
-
-
     const dateStr = new Intl.DateTimeFormat('en-US').format(Date.now())
-    // const dateStr2 = new Intl.DateTimeFormat('en-US').format(new Date(task.due_date_string))
-    // console.log(dateStr2)
     const [taskName, setTaskName] = useState(task.task_name);
     const [description, setDescription] = useState(task.description);
-    const [dueDateStr, setDueDateStr] = useState(task.due_date ? new Intl.DateTimeFormat('en-US').format(new Date(task.due_date_string)) : dateStr)
+    const [dueDateStr, setDueDateStr] = useState(task.due_date ? new Intl.DateTimeFormat('en-US').format((new Date(task.due_date_string.slice(0, 26)))) : dateStr)
     const [priority, setPriority] = useState(task.priority || "4")
-    const [project_id, setProjectId] = useState(task.project_id || null)
+    const [project_id, setProjectId] = useState(task.project_id || 0)
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
     const projects = user.projects;
@@ -32,9 +28,16 @@ export default function TaskForm({ task, formType, user }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        let errors = [];
+
+        if (taskName.length > 50) errors.push("Please provide a task name less than 50 characters")
+        if (description.length > 2000) errors.push("Please provide a description less than 2000 characters")
+
+        if (errors.length > 0) return setErrors(errors)
+
         let dueDate = (new Date(dueDateStr)).toISOString().slice(0, 10);
         const taskObj = { task_name: taskName, description: description, priority: priority, due_date: dueDate, project_id: project_id }
-        console.log(taskObj)
+        //console.log(taskObj)
         if (formType === "Create a New Task") {
             dispatch(createAUserTask(user.id, taskObj))
                 .then(closeModal)
@@ -112,7 +115,7 @@ export default function TaskForm({ task, formType, user }) {
                 <div className="task_editor__footer">
                     <span>
                         <select name="task-form-project" id="task-form-project" onChange={(e) => setProjectId(Number(e.target.value))} >
-                            <option value={null}>Inbox</option>
+                            <option value={0}>Inbox</option>
                             {projects.map(project => (
                                 <option value={`${project.id}`} selected={project.id == task.project_id}>{project.project_name}</option>
                             ))}

@@ -13,20 +13,37 @@ function SignupFormModal() {
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
 
+	const checkValidEmail = () => {
+		if (!email.includes('@') || !email.includes('.')) return ["Email is invalid"];
+		if (!email || !email.length > 6) return ["Email must be 6 characters or more"];
+
+		const textAfterPeriod = email.split(".")[1]
+		const textAfterAmpersand = email.split("@")[1]
+
+		if (!textAfterPeriod || !textAfterAmpersand) return ["Email is invalid"]
+		return false
+	}
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
-			if (data) {
-				setErrors(data);
-			} else {
-				closeModal();
-			}
+
+		let errors = [];
+		const checkEmail = checkValidEmail();
+		if (checkEmail) errors.push(checkEmail)
+
+		if (!username || username.length < 4) errors.push('Username must be 4 characters or more');
+		if (!password || password.length < 6) errors.push("Password length must longer than 6 character");
+		if (password !== confirmPassword) errors.push('Confirm Password field must be the same as the Password fieldh')
+
+		if (errors.length > 0) return setErrors(errors)
+
+		const data = await dispatch(signUp(username, email, password));
+		if (data) {
+			return setErrors(data);
 		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
+			closeModal();
 		}
+
 	};
 
 	return (

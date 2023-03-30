@@ -30,6 +30,10 @@
     width: 224px;
 }
 
+.project-title-container i {
+    cursor: pointer;
+}
+
 .project-title-container h3 {
     display: inline;
 }
@@ -86,6 +90,8 @@ font-size: 15px;
 .project-action-menu-list {
     list-style: none;
 }
+
+
 
 
 /* Delete project Modal  */

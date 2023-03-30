@@ -28,7 +28,7 @@ export default function ProjectForm({ project, formType, userId }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const projectObj = { project_name, color, view_type }
-        console.log(projectObj)
+        //console.log(projectObj)
         if (formType === "Create a New Project") {
             dispatch(createAUserProject(userId, projectObj))
                 .then(closeModal)
