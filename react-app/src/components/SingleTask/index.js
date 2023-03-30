@@ -32,7 +32,7 @@ function SingleTask({ info }) {
                             <span>
                                 Due date: {task.due_date}
                             </span>
-                            <span onClick={() => window.alert("Comments feature coming soon.")} title="Comment on task">
+                            <span onClick={() => window.alert("Comments feature coming soon.")} title="Comment on task" >
                                 <i class="fa-regular fa-comment"></i>
                             </span>
 

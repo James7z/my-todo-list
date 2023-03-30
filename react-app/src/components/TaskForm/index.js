@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { createAUserTask, updateATask } from "../../store/task";
@@ -16,7 +16,7 @@ export default function TaskForm({ task, formType, user }) {
     const [project_id, setProjectId] = useState(task.project_id || 0)
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
-    const projects = user.projects;
+    const projects = useSelector(state => state.project.UserProjects);
 
     const dispatch = useDispatch();
 
