@@ -15,7 +15,7 @@ function HomePage({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
     const session = useSelector(state => state.session)
     const tasks = useSelector(state => state.task.userTasks)
-    const task = { task_name: '', description: '', priority: '', due_date: '' }
+    const task = { task_name: '', description: '', priority: '', due_date: '', project_id: null }
 
     useEffect(() => {
         dispatch(getUserTasks(sessionUser.id))
@@ -46,7 +46,7 @@ function HomePage({ isLoaded }) {
                     <div>
                         <OpenModalButton
                             buttonText="Add Task"
-                            modalComponent={<TaskForm userId={sessionUser.id} task={task} formType="Create a New Task" />}
+                            modalComponent={<TaskForm user={sessionUser} task={task} formType="Create a New Task" />}
                         />
                         {/* <button type='button' onClick={() => setOpenTaskForm(!openTaskForm)} >Add Task</button>
                         <div className={`${openTaskForm ? "show" : "hidden"}`}>

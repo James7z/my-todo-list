@@ -1,5 +1,7 @@
 #left-menu {
     display: flex;
+    background-color: #fafafa;
+    ;
 }
 
 .project-tasks-link {
@@ -21,12 +23,37 @@
     cursor: col-resize;
 }
 
+.project-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 224px;
+}
+
+.project-title-container h3 {
+    display: inline;
+}
+
+.project-title-container i {
+    margin: 0 2px;
+    width: 15px;
+    height: 15px;
+}
+
+
 .project-list-container {
     display: flex;
     justify-content: space-between;
+    margin: 5px 2px;
 }
 
-.project-action-menu-container {
+.project-action-button {
+    border: none;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+/* .project-action-menu-container {
     /* width: 24px;
     height: 24px;
     position: relative;
@@ -34,25 +61,24 @@
     list-style: none;
     border-radius: 3px;
     border: 1px solid #ddd;
-    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08); */
-
-
-    position: absolute;
-    /* inset: 0px 0px 10px 0px; */
-    /* transform: translate(182px, 292px); */
-    list-style: none;
-    border-radius: 3px;
-    border: 1px solid #ddd;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08);
-    width: 150px;
-    max-height: 80px;
 
-    background-color: white;
-    font-size: 15px;
+
+position: absolute;
+
+list-style: none;
+border-radius: 3px;
+border: 1px solid #ddd;
+box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08);
+width: 150px;
+max-height: 80px;
+
+background-color: white;
+font-size: 15px;
 
 }
-
-.project-action-menu-list li {
+*/
+*/ .project-action-menu-list li {
     cursor: pointer;
 }
 

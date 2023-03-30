@@ -38,10 +38,10 @@ function SingleTask({ info }) {
                     </span>
                 </span>
                 <span className='task-buttons-container'>
-                    <span>
+                    <span title="Update task">
                         <OpenModalButton
                             icon={"fa-regular fa-pen-to-square"}
-                            modalComponent={<TaskForm userId={session.user.id} task={task} formType="Update a Task" />}
+                            modalComponent={<TaskForm user={session.user} task={task} formType="Update a Task" />}
                         />
                     </span>
                     <span>

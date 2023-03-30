@@ -53,7 +53,6 @@ def create_user_task(user_id):
             description=form.description.data,
             priority=form.priority.data,
             due_date=form.due_date.data,
-            # due_date=datetime.now(),
             project_id=form.project_id.data,
             user_id=user_id,
             createdAt=datetime.now(),
@@ -90,7 +89,7 @@ def get_user_projects(user_id):
     return [project.to_dict() for project in projects]
 
 
-# Create an user's task
+# Create an user's project
 
 
 @ user_routes.route('/<int:user_id>/projects', methods=['POST'])

@@ -9,7 +9,7 @@ export default function ProjectActionMenu({ project, userId }) {
     return (
         <>
             <span className='project-action-menu-span'>
-                <i className="fa-solid fa-ellipsis" onClick={() => setOpenProjectMenu(!openProjectMenu)}></i>
+                {/* <i className="fa-solid fa-ellipsis" onClick={() => setOpenProjectMenu(!openProjectMenu)}></i>
                 <div className={`project-action-menu-container ${openProjectMenu ? "show" : "hidden"}`} >
                     <ul className='project-action-menu-list'>
                         <OpenModalMenuItem
@@ -21,7 +21,7 @@ export default function ProjectActionMenu({ project, userId }) {
                             itemText={<><i className="fa-solid fa-trash-can">  </i> Delete project </>}
                             modalComponent={<DeleteProjectModal projectId={project.id} userId={userId} />} />
                     </ul>
-                </div>
+                </div> */}
 
             </span>
         </>
