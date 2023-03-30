@@ -24,6 +24,11 @@
     width: 80%;
 }
 
+
+.single-task-container button {
+    cursor: pointer;
+}
+
 .single-task-date-comment-container {
 
     width: 100%;
@@ -35,4 +40,14 @@
 
 .single-task-name-due-date-container {
     width: 60%;
+}
+
+.single-task-description {
+    font-size: 12px;
+    padding: 2px 15px;
+    color: rgba(0, 0, 0, 0.56);
+}
+
+.single-task-date-comment-container i {
+    cursor: pointer;
 }

@@ -46,18 +46,31 @@ def create_user_task(user_id):
     # data = request.get_json()
     form = TaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('***************')
+    print(form.project_id.data)
 
     if form.validate_on_submit():
-        new_task = Task(
-            task_name=form.task_name.data,
-            description=form.description.data,
-            priority=form.priority.data,
-            due_date=form.due_date.data,
-            project_id=form.project_id.data,
-            user_id=user_id,
-            createdAt=datetime.now(),
-            updatedAt=datetime.now()
-        )
+        if form.project_id.data > 0:
+            new_task = Task(
+                task_name=form.task_name.data,
+                description=form.description.data,
+                priority=form.priority.data,
+                due_date=form.due_date.data,
+                project_id=form.project_id.data,
+                user_id=user_id,
+                createdAt=datetime.now(),
+                updatedAt=datetime.now()
+            )
+        else:
+            new_task = Task(
+                task_name=form.task_name.data,
+                description=form.description.data,
+                priority=form.priority.data,
+                due_date=form.due_date.data,
+                user_id=user_id,
+                createdAt=datetime.now(),
+                updatedAt=datetime.now()
+            )
     # new_task = Task(
     #     task_name=data["task_name"],
     #     description=data["description"],

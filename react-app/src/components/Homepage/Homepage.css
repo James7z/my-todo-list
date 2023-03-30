@@ -15,6 +15,10 @@
 
 }
 
+.home-page-content-container button {
+    cursor: pointer;
+}
+
 .home-page-task {
     list-style: none;
     /* margin: 3px 10%; */
