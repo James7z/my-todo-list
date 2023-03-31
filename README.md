@@ -19,11 +19,12 @@
     <!-- <a href="https://github.com/James7z/my-todo-list.git/issues">Report Bug</a>
     ·
     <a href="https://github.com/James7z/my-todo-list.git/issues">Request Feature</a> -->
-  </p>
-</div>
-<div> 
+    <div> 
 <a href="https://my-todo-list-zs7q.onrender.com"><strong>Link to the live site  </a>
 </div>
+  </p>
+</div>
+
 
 
 
