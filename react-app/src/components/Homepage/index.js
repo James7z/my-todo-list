@@ -14,7 +14,7 @@ function HomePage({ isLoaded }) {
     const [openTaskForm, setOpenTaskForm] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
     const session = useSelector(state => state.session)
-    const tasks = useSelector(state => state.task.userTasks)
+    const tasks = useSelector(state => state.task.userTasks?.sort((a, b) => a.id - b.id))
     const task = { task_name: '', description: '', priority: '', due_date: '', project_id: null }
 
     useEffect(() => {

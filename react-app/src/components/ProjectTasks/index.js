@@ -30,7 +30,7 @@ export default function ProjectTasks() {
     if (!sessionUser) return <Redirect to="/" />;
     let tasks = []
     if (project) {
-        tasks = project.tasks
+        tasks = project.tasks?.sort((a, b) => a.id - b.id)
     } else {
         return (
             <>

@@ -66,7 +66,7 @@ export default function TaskForm({ task, formType, user }) {
                             <input
                                 type="text"
                                 value={taskName}
-                                placeholder="Task Name"
+                                placeholder="Task Name (required)"
                                 onChange={(e) => setTaskName(e.target.value)}
                                 required
                             />
@@ -75,7 +75,7 @@ export default function TaskForm({ task, formType, user }) {
                             <input
                                 type="text"
                                 value={description}
-                                placeholder="Description"
+                                placeholder="Description (optional)"
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </div>
