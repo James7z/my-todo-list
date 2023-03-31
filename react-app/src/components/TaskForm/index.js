@@ -116,7 +116,7 @@ export default function TaskForm({ task, formType, user }) {
                     <span>
                         <select name="task-form-project" id="task-form-project" onChange={(e) => setProjectId(Number(e.target.value))} >
                             <option value={0}>Inbox</option>
-                            {projects.map(project => (
+                            {projects && Object.values(projects).map(project => (
                                 <option value={`${project.id}`} selected={project.id == task.project_id}>{project.project_name}</option>
                             ))}
                         </select>

@@ -35,7 +35,7 @@ function LeftMenu() {
                             </span>
                         </div>
                         <div className={`projects-list-container ${openProjectList ? "show" : "hidden"}`} >
-                            {projects && projects.map((project, idx) => (
+                            {projects && Object.values(projects).map((project, idx) => (
                                 <>
                                     <div className='project-list-container'>
                                         <NavLink to={`/projects/${project.id}`} className="project-tasks-link">

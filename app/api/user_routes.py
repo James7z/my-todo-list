@@ -34,9 +34,9 @@ def user(id):
 def get_user_tasks(id):
     user = User.query.get(id)
     tasks = user.tasks
-    tasks_unchecked = [task for task in tasks if task.checked == False]
-    return [task.to_dict() for task in tasks_unchecked]
-
+    # tasks_unchecked = [task for task in tasks if task.checked == False]
+    # return [task.to_dict() for task in tasks_unchecked]
+    return {task.id: task.to_dict() for task in tasks}
 # Create an user's task
 
 
@@ -99,8 +99,8 @@ def create_user_task(user_id):
 def get_user_projects(user_id):
     user = User.query.get(user_id)
     projects = user.projects
-    return [project.to_dict() for project in projects]
-
+    # return [project.to_dict() for project in projects]
+    return {project.id: project.to_dict() for project in projects}
 
 # Create an user's project
 

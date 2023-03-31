@@ -69,11 +69,21 @@ def delete_project(project_id):
     db.session.commit()
     return {"project_id": project_id}
 
+# Get a single project
+
 
 # Get tasks under an project
-
-
 @project_routes.route('/<int:project_id>')
+@login_required
+def get_single_project(project_id):
+    project = Project.query.get(project_id)
+
+    if not project:
+        return {"errors": ["Invalid Delete Request"]}
+    return project.to_dict()
+
+
+@project_routes.route('/<int:project_id>/tasks')
 @login_required
 def get_task_under_project(project_id):
     project = Project.query.get(project_id)
@@ -81,4 +91,5 @@ def get_task_under_project(project_id):
     if not project:
         return {"errors": ["Invalid Delete Request"]}
 
-    return project.to_dict2()
+    tasks = project.tasks
+    return {task.id: task.to_dict() for task in tasks}
