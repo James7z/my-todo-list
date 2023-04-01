@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-import bgLeft from './welcome-bg-center.png'
+
 
 function WelcomePage({ isLoaded }) {
     const sessionUser = useSelector((state) => state.session.user);
