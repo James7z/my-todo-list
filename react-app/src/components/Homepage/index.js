@@ -14,7 +14,9 @@ function HomePage({ isLoaded }) {
     const [openTaskForm, setOpenTaskForm] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
     const session = useSelector(state => state.session)
-    const tasks = useSelector(state => state.task.userTasks)
+    const tasks = useSelector(state => state.task.AllTasks)
+    let taskUncheckedOrdered = []
+    if (tasks) taskUncheckedOrdered = Object.values(tasks).filter(task => task.checked === false).sort((a, b) => a.id - b.id)
     const task = { task_name: '', description: '', priority: '', due_date: '', project_id: null }
 
     useEffect(() => {
@@ -23,6 +25,11 @@ function HomePage({ isLoaded }) {
     }, [dispatch])
 
     if (!sessionUser) return <Redirect to="/" />;
+    if (!tasks) return (
+        <>
+            <h2>Unable to retrieve tasks. Please try again shortly. </h2>
+        </>
+    )
 
     return (
         <>
@@ -36,7 +43,7 @@ function HomePage({ isLoaded }) {
                         Inbox
                     </h3>
                     <ul>
-                        {tasks && tasks.map((task, idx) => (
+                        {tasks && taskUncheckedOrdered.map((task, idx) => (
                             <li className="home-page-task" key={idx}>
                                 <SingleTask info={[task, session]} />
                             </li>

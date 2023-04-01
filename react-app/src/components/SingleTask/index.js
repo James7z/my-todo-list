@@ -52,7 +52,7 @@ function SingleTask({ info }) {
                             <i class="fa-regular fa-comment"></i>
                         </button>
                     </span>
-                    <span>
+                    <span title="Delete task">
                         <OpenModalButton
                             icon={"fa-solid fa-trash-can"}
                             modalComponent={<DeleteTaskModal taskId={task.id} userId={session.user.id} />}

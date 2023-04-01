@@ -1,18 +1,24 @@
 // constants
-const LOAD_USER_TASKS = "user/LOAD_USER_TASKS";
-const UPDATE_SINGLE_TASK = "tasks/UPDATE_SINGLE_TASK"
+const LOAD_TASKS = "tasks/LOAD_TASKS";
+const ADD_SINGLE_TASK = "tasks/ADD_SINGEL_TASK"
+const DELETE_SINGLE_TASK = "tasks/DELETE_SINGLE_TASK"
 
-const loadUserTasks = (tasks) => ({
-    type: LOAD_USER_TASKS,
+
+const loadTasks = (tasks) => ({
+    type: LOAD_TASKS,
     payload: tasks,
 });
 
-const updateSingleTask = (task) => ({
-    type: UPDATE_SINGLE_TASK,
+const addSingleTask = (task) => ({
+    type: ADD_SINGLE_TASK,
     payload: task
 })
 
-const initialState = { userTasks: null };
+const deleteSingleTask = (taskId) => ({
+    type: DELETE_SINGLE_TASK,
+    taskId
+})
+
 
 export const getUserTasks = (userId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/tasks`);
@@ -21,10 +27,25 @@ export const getUserTasks = (userId) => async (dispatch) => {
         if (data.errors) {
             return;
         }
-        dispatch(loadUserTasks(data));
+        dispatch(loadTasks(data));
         return data
     }
 };
+
+export const getProjectTask = (projectId) => async (dispatch) => {
+    const response = await fetch(`/api/projects/${projectId}/tasks`);
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(loadTasks(data));
+        return data
+    }
+};
+
+
+
 
 export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
     const { task_name, description, priority, due_date, project_id } = taskObj
@@ -40,7 +61,7 @@ export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
         if (data.errors) {
             return;
         }
-        dispatch(getUserTasks(user_id));
+        dispatch(addSingleTask(data));
         return data
     }
 };
@@ -61,7 +82,7 @@ export const updateATask = (task_id, taskObj) => async (dispatch) => {
             return;
         }
         // dispatch(updateSingleTask(data));
-        dispatch(getUserTasks(data.user_id));
+        dispatch(addSingleTask(data));
         return data
     }
 };
@@ -89,22 +110,30 @@ export const deleteTask = (taskId, userId) => async (dispatch) => {
         method: "DELETE",
     })
     if (response.ok) {
-        dispatch(getUserTasks(userId))
+        dispatch(deleteSingleTask(taskId))
         return response
     }
 
 }
 
 
+// const initialState = { userTasks: null, projectTasks: null };
+const initialState = { AllTasks: null };
 
 export default function reducer(state = initialState, action) {
     let newState = { ...state }
+    let AllTasks = {}
     switch (action.type) {
-        case LOAD_USER_TASKS:
-            return { userTasks: action.payload };
-        case UPDATE_SINGLE_TASK:
-            newState.userTasks[action.payload.id] = action.payload
-            return newState
+        case LOAD_TASKS:
+            newState.AllTasks = action.payload
+            return newState;
+        case ADD_SINGLE_TASK:
+            AllTasks = { ...state.AllTasks, [action.payload.id]: action.payload }
+            return { ...state, AllTasks };
+        case DELETE_SINGLE_TASK:
+            AllTasks = { ...state.AllTasks }
+            delete AllTasks[action.taskId];
+            return { ...state, AllTasks };
         default:
             return state;
     }

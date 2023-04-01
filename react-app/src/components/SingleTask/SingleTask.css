@@ -12,6 +12,7 @@
 }
 
 
+
 #check-task-button {
     border: none;
     background-color: white;
@@ -46,6 +47,7 @@
     font-size: 12px;
     padding: 2px 15px;
     color: rgba(0, 0, 0, 0.56);
+    word-wrap: break-word;
 }
 
 .single-task-date-comment-container i {
