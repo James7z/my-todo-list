@@ -39,7 +39,7 @@ function LeftMenu() {
                                 <>
                                     <div className='project-list-container'>
                                         <NavLink to={`/projects/${project.id}`} className="project-tasks-link">
-                                            <div>
+                                            <div className='project-list-project-name'>
                                                 {project.project_name}
                                             </div>
                                         </NavLink>
