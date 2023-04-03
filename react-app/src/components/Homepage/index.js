@@ -11,12 +11,18 @@ import LeftMenu from '../LeftMenu';
 
 function HomePage({ isLoaded }) {
     const dispatch = useDispatch();
-    const [openTaskForm, setOpenTaskForm] = useState(false);
+    //const [openTaskForm, setOpenTaskForm] = useState(false);
+    const [openCheckedTask, setOpenCheckedTask] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
     const session = useSelector(state => state.session)
     const tasks = useSelector(state => state.task.AllTasks)
-    let taskUncheckedOrdered = []
-    if (tasks) taskUncheckedOrdered = Object.values(tasks).filter(task => task.checked === false).sort((a, b) => a.id - b.id)
+    let taskUncheckedOrdered = [];
+    let taskCheckedOrdered = [];
+    if (tasks) {
+        taskUncheckedOrdered = Object.values(tasks).filter(task => task.checked === false).sort((a, b) => a.id - b.id)
+        taskCheckedOrdered = Object.values(tasks).filter(task => task.checked === true).sort((a, b) => a.id - b.id)
+    }
+
     const task = { task_name: '', description: '', priority: '', due_date: '', project_id: null }
 
     useEffect(() => {
@@ -39,9 +45,13 @@ function HomePage({ isLoaded }) {
                 </div>
 
                 <div className='home-page-tasks-container'>
-                    <h3>
-                        Inbox
-                    </h3>
+                    <div className='project-title-buttons-container'>
+                        <h3>
+                            Inbox
+                        </h3>
+                        <i class="fa-regular fa-circle-check" title='Show completed tasks' onClick={() => setOpenCheckedTask(!openCheckedTask)}></i>
+                    </div>
+
                     <ul>
                         {tasks && taskUncheckedOrdered.map((task, idx) => (
                             <li className="home-page-task" key={idx}>
@@ -50,7 +60,7 @@ function HomePage({ isLoaded }) {
                         )
                         )}
                     </ul>
-                    <div>
+                    <div className='add-task-button-container'>
                         <OpenModalButton
                             buttonText="Add Task"
                             modalComponent={<TaskForm user={sessionUser} task={task} formType="Create a New Task" />}
@@ -59,6 +69,17 @@ function HomePage({ isLoaded }) {
                         <div className={`${openTaskForm ? "show" : "hidden"}`}>
                             <TaskForm />
                         </div> */}
+                    </div>
+                    <div className={`checked-tasks-cotainer ${openCheckedTask ? "show" : "hidden"}`} >
+                        <h3>Completed Tasks</h3>
+                        <ul>
+                            {tasks && taskCheckedOrdered.map((task, idx) => (
+                                <li className="home-page-task" key={idx}>
+                                    <SingleTask info={[task, session]} />
+                                </li>
+                            )
+                            )}
+                        </ul>
                     </div>
                 </div>
                 <div className='home-page-right-menu'>

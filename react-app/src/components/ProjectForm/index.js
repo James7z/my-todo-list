@@ -49,10 +49,10 @@ export default function ProjectForm({ project, formType, userId }) {
     return (
         <>
 
-            <form onSubmit={handleSubmit} className={`task-editor-form `}  >
-                <h2>
+            <form onSubmit={handleSubmit} className={`project-editor-form`}  >
+                {/* <h2>
                     {titleStr}
-                </h2>
+                </h2> */}
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
@@ -61,18 +61,18 @@ export default function ProjectForm({ project, formType, userId }) {
                 <div className="project-editor-editing-area">
                     <div className="project-editor-input-fields">
                         <div>
-                            <label>Name</label>
+                            <label>Project Name</label>
                             <input
                                 type="text"
                                 value={project_name}
-                                placeholder="Project Name"
+                                placeholder="Enter your project Name"
                                 onChange={(e) => setProjectName(e.target.value)}
                                 required
                             />
                         </div>
 
                     </div>
-                    <div className="project-editor-color">
+                    <div className="project-editor-color project-editor-input-fields">
                         <div>
                             <label for="color">Color:</label>
                             <select name="color" id="color" onChange={(e) => setColor(e.target.value)}>
@@ -82,7 +82,7 @@ export default function ProjectForm({ project, formType, userId }) {
                             </select>
                         </div>
                     </div>
-                    <div className="project-editor-view-type">
+                    <div className="project-editor-view-type project-editor-input-fields">
                         <div>
                             <label for="viewType">View Type:</label>
                             <select name="viewType" id="viewType" onChange={(e) => setViewType(e.target.value)}>
@@ -94,11 +94,11 @@ export default function ProjectForm({ project, formType, userId }) {
                     </div>
                 </div>
 
-                <div className="project_editor__footer">
-                    <span>
+                <div className="project-editor-footer project-editor-input-fields">
+                    <div className="project-editor-footer-buttons-container">
                         <button type="button" onClick={() => closeModal()} >Cancel</button>
                         <button type="submit" >{buttonStr} </button>
-                    </span>
+                    </div>
 
                 </div>
 

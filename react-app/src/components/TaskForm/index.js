@@ -63,6 +63,7 @@ export default function TaskForm({ task, formType, user }) {
                 <div className="task-editor-editing-area">
                     <div className="task-editor-input-fields">
                         <div>
+                            <label>Task Name</label>
                             <input
                                 type="text"
                                 value={taskName}
@@ -72,6 +73,7 @@ export default function TaskForm({ task, formType, user }) {
                             />
                         </div>
                         <div>
+                            <label>Description</label>
                             <input
                                 type="text"
                                 value={description}
@@ -82,8 +84,9 @@ export default function TaskForm({ task, formType, user }) {
                     </div>
                     <div className="task-editor-due-date-priority">
 
-                        <div aria-label="Set due date" role="button" tabindex="0" >
-                            <div >
+                        <div aria-label="Set due date"   >
+                            <div className="task-editor-due-date">
+                                <label>Due Date <br></br> </label>
                                 <i class="fas fa-calendar-alt"></i>
                                 <input
                                     type="text"
@@ -100,8 +103,8 @@ export default function TaskForm({ task, formType, user }) {
                             </div>
                         </div>
 
-                        <div>
-                            <label for="priority">Priority:</label>
+                        <div className="task-editor-priority-container">
+                            <label for="priority">Priority: <br></br> </label>
                             <select name="priority" id="priority" onChange={(e) => setPriority(e.target.value)}>
                                 <option value="1" selected={1 == priority}>1</option>
                                 <option value="2" selected={2 == priority}>2</option>
@@ -112,8 +115,9 @@ export default function TaskForm({ task, formType, user }) {
                     </div>
                 </div>
 
-                <div className="task_editor__footer">
-                    <span>
+                <div className="task-editor-footer">
+                    <span >
+                        <label>Project <br></br> </label>
                         <select name="task-form-project" id="task-form-project" onChange={(e) => setProjectId(Number(e.target.value))} >
                             <option value={0}>Inbox</option>
                             {projects && Object.values(projects).map(project => (
@@ -121,10 +125,10 @@ export default function TaskForm({ task, formType, user }) {
                             ))}
                         </select>
                     </span>
-                    <span>
+                    <div className="task-editor-footer-buttons-container">
                         <button type="button" onClick={() => closeModal()} >Cancel</button>
                         <button type="submit" >{buttonStr} </button>
-                    </span>
+                    </div>
 
                 </div>
 
