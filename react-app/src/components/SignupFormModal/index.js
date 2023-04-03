@@ -33,7 +33,7 @@ function SignupFormModal() {
 
 		if (!username || username.length < 4) errors.push('Username must be 4 characters or more');
 		if (!password || password.length < 6) errors.push("Password length must longer than 6 character");
-		if (password !== confirmPassword) errors.push('Confirm Password field must be the same as the Password fieldh')
+		if (password !== confirmPassword) errors.push('Confirm Password must be the same as the Password')
 
 		if (errors.length > 0) return setErrors(errors)
 
