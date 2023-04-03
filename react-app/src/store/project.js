@@ -1,6 +1,7 @@
 // constants
 const LOAD_SINGEL_PROJECT = "user/LOAD_SINGEL_PROJECT";
 const LOAD_USER_PROJECTS = "user/LOADUSER_PROJECTS";
+const DELETE_PROJECT = "project/DELETE_PROJECT"
 
 const loadSingleProject = (project) => ({
     type: LOAD_SINGEL_PROJECT,
@@ -10,6 +11,11 @@ const loadSingleProject = (project) => ({
 const loadUserProjects = (projects) => ({
     type: LOAD_USER_PROJECTS,
     payload: projects
+});
+
+const removeProject = (projectId) => ({
+    type: DELETE_PROJECT,
+    projectId
 });
 
 const initialState = { UserProjects: null, SingleProject: null };
@@ -83,7 +89,7 @@ export const deleteProject = (projectId, userId) => async (dispatch) => {
         method: "DELETE",
     })
     if (response.ok) {
-        dispatch(getUserProjects(userId))
+        dispatch(removeProject(projectId))
         return response
     }
 
@@ -95,6 +101,8 @@ export const deleteProject = (projectId, userId) => async (dispatch) => {
 
 export default function reducer(state = initialState, action) {
     let newState = { ...state }
+    let UserProjects = { ...state.UserProjects }
+    let SingleProject = { ...state.SingleProject }
     switch (action.type) {
         case LOAD_SINGEL_PROJECT:
             newState.SingleProject = action.payload
@@ -103,9 +111,10 @@ export default function reducer(state = initialState, action) {
         case LOAD_USER_PROJECTS:
             newState.UserProjects = action.payload
             return newState;
-        // case UPDATE_SINGLE_TASK:
-        //     newState.userTasks[action.payload.id] = action.payload
-        //     return newState
+        case DELETE_PROJECT:
+            delete UserProjects[action.projectId];
+            if (SingleProject && SingleProject.id === action.projectId) delete newState.SingleProject;
+            return { ...newState, UserProjects, SingleProject: { id: 0 } }
         default:
             return state;
     }

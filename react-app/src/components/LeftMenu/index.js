@@ -21,7 +21,14 @@ function LeftMenu() {
             <div id="left-menu">
                 <div>
                     <div data-expansion-panel-header="true" focus-marker-enabled-within>
+                        <div>
+                            <NavLink to={`/home`} className="project-tasks-link">
+                                <h3>Inbox</h3>
+                            </NavLink>
+                        </div>
                         <div className='project-title-container'>
+
+
                             <h3>Project</h3>
                             <span>
                                 <OpenModalButton

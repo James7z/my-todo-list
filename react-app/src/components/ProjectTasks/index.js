@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -13,13 +13,18 @@ import LeftMenu from '../LeftMenu';
 export default function ProjectTasks() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
+    const [openCheckedTask, setOpenCheckedTask] = useState(false);
     const session = useSelector(state => state.session);
     const tasks = useSelector(state => state.task.AllTasks);
     const project = useSelector(state => {
         if (state.project) return state.project.SingleProject
     })
     let taskUncheckedOrdered = [];
-    if (tasks && project) taskUncheckedOrdered = Object.values(tasks).filter(task => task.checked === false && task.project_id === project.id).sort((a, b) => a.id - b.id);
+    let taskCheckedOrdered = [];
+    if (tasks && project) {
+        taskUncheckedOrdered = Object.values(tasks).filter(task => task.checked === false && task.project_id === project.id).sort((a, b) => a.id - b.id);
+        taskCheckedOrdered = Object.values(tasks).filter(task => task.checked === true && task.project_id === project.id).sort((a, b) => a.id - b.id)
+    }
     const sessionUser = session.user
     const task = { task_name: '', description: '', priority: '', due_date: '', project_id: projectId }
 
@@ -40,6 +45,7 @@ export default function ProjectTasks() {
             </>
         )
     }
+    if (project.id === 0) return <Redirect to='/home' />;
 
 
     return (
@@ -49,9 +55,13 @@ export default function ProjectTasks() {
                     <LeftMenu />
                 </div>
                 <div className='project-page-tasks-container'>
-                    <h3>
-                        {project.project_name}
-                    </h3>
+                    <div className='project-title-buttons-container'>
+                        <h3>
+                            {project.project_name}
+                        </h3>
+                        <i class="fa-regular fa-circle-check" title='Show completed tasks' onClick={() => setOpenCheckedTask(!openCheckedTask)}></i>
+                    </div>
+
                     <ul>
                         {tasks && taskUncheckedOrdered.map((task, idx) => (
                             <li className="project-page-task" key={idx}>
@@ -60,12 +70,23 @@ export default function ProjectTasks() {
                         )
                         )}
                     </ul>
-                    <div>
+                    <div className='add-task-button-container'>
                         <OpenModalButton
                             buttonText="Add Task"
                             modalComponent={<TaskForm user={sessionUser} task={task} formType="Create a New Task" />}
                         />
 
+                    </div>
+                    <div className={`checked-tasks-cotainer ${openCheckedTask ? "show" : "hidden"}`} >
+                        <h3>Completed Tasks</h3>
+                        <ul>
+                            {tasks && taskCheckedOrdered.map((task, idx) => (
+                                <li className="home-page-task" key={idx}>
+                                    <SingleTask info={[task, session]} />
+                                </li>
+                            )
+                            )}
+                        </ul>
                     </div>
                 </div>
                 <div className='project-page-right-menu'>

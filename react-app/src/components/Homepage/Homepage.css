@@ -1,6 +1,7 @@
 .home-page-content-container {
     display: flex;
     flex-grow: 1;
+    margin: 0 1em;
 
 }
 
@@ -12,7 +13,7 @@
 .home-page-tasks-container {
 
     width: 800px;
-    margin-left: 10px;
+    margin-left: 50px;
 
 }
 
@@ -28,4 +29,22 @@
 
 .project-list-container {
     width: 220px;
+}
+
+
+.add-task-button-container button {
+    font-size: 16px;
+
+    height: 30px;
+    border-radius: 5px;
+
+}
+
+.project-title-buttons-container h3 {
+    display: inline;
+    margin-right: 20px;
+}
+
+.project-title-buttons-container i {
+    cursor: pointer;
 }

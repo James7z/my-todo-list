@@ -1,22 +1,18 @@
-label {
-    background-color: rgb(212, 237, 237);
-    color: rgb(46, 3, 3);
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    margin: 2px;
-
+.log-in-form-container {
+    background-color: white;
+    border-radius: 8px;
 }
 
-h2 {
-    display: flex;
-    justify-content: center;
-}
 
 .log-in-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white
+}
 
+.log-in-form ul {
+    margin-block-start: 2px;
 }
 
 .demo-user-login-container {
@@ -24,7 +20,43 @@ h2 {
     justify-content: center;
 }
 
-.log-in-form button {
-    width: 50%;
-    margin: 0 25%;
+
+
+.login-input-container {
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.log-in-form label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.log-in-form input {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.login-button {
+    width: 90%;
+    margin: 0 5%;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
+
+.demo-user-login-container button {
+    width: 90%;
+    margin: 2px 5%;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
 }
