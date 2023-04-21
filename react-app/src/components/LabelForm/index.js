@@ -4,7 +4,7 @@ import { useModal } from "../../context/Modal";
 import { createAUserProject, updateAUserProject } from "../../store/project";
 import './ProjectForm.css'
 
-export default function CommentForm({ comment, formType, userId }) {
+export default function LableForm({ comment, formType, userId }) {
     const [comment_name, setCommentName] = useState(comment.project_name);
     const [color, setColor] = useState(comment.color || "Red");
     const [view_type, setViewType] = useState(comment.view_type || "List")
