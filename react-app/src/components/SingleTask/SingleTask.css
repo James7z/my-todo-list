@@ -11,7 +11,10 @@
     padding-inline-start: 0px;
 }
 
+i.fa-circle :hover {
+    
 
+}
 
 #check-task-button {
     border: none;
