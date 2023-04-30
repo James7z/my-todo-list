@@ -67,4 +67,4 @@ function TaskDetails({ info }) {
 
 
 
-export default SingleTask;
+export default TaskDetails;

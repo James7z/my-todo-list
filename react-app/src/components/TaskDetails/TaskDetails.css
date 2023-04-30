@@ -1,0 +1,12 @@
+.task-details-container {
+    background-color: #fff;
+    width: 864px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.task-details-content-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
