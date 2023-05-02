@@ -24,7 +24,7 @@ function TaskDetails({ info }) {
                             {task.task_name}
                         </div>
                         <div className="single-task-description">
-                            {task.description}
+                            {task.description ? task.description : "Description"}
                         </div>
                         <div className='single-task-date-comment-container' >
                             <span>

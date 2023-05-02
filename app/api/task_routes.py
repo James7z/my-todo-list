@@ -93,3 +93,17 @@ def delete_task(task_id):
     db.session.delete(task)
     db.session.commit()
     return {"id": task_id}
+
+
+# Get task comments
+@task_routes.route('/<int:task_id>/comments', methods=['GET'])
+@login_required
+def get_task_comments(task_id):
+
+    task = Task.query.get(task_id)
+    if not task:
+        return {"errors": ["Invalid Get Request"]}
+
+    comments = task.comments
+
+    return {comment.id: comment.to_dict() for comment in comments}
