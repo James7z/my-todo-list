@@ -16,27 +16,30 @@ function TaskDetails({ info }) {
         <>
             <div className='task-details-container' >
                 <span className='task-details-content-container'>
-                    <button id='check-task-button' onClick={handleCheckTask} title="Check task">
-                        <i class="fa-regular fa-circle fa-xl" ></i>
-                    </button>
-                    <span className='single-task-name-due-date-container'>
-                        <div>
-                            {task.task_name}
-                        </div>
-                        <div className="single-task-description">
-                            {task.description ? task.description : "Description"}
-                        </div>
-                        <div className='single-task-date-comment-container' >
-                            <span>
-                                Due date: {task.due_date}
-                            </span>
-                            <span onClick={() => window.alert("Comments feature coming soon.")} title="Comment on task" >
-                                <i class="fa-regular fa-comment"></i>
-                            </span>
+                    <div className="task-details-name-description-container">
+                        <button id='check-task-button' onClick={handleCheckTask} title="Check task">
+                            <i class="fa-regular fa-circle fa-xl" ></i>
+                        </button>
+                        <span className='task-details-name-description'>
+                            <div>
+                                {task.task_name}
+                            </div>
+                            <div className="single-task-description">
+                                {task.description ? task.description : "Description"}
+                            </div>
+                            <div className='single-task-date-comment-container' >
+                                <span>
+                                    Due date: {task.due_date}
+                                </span>
+                                <span onClick={() => window.alert("Comments feature coming soon.")} title="Comment on task" >
+                                    <i class="fa-regular fa-comment"></i>
+                                </span>
 
-                        </div>
+                            </div>
 
-                    </span>
+                        </span>
+                    </div>
+
                 </span>
                 <span className='task-buttons-container'>
                     <span title="Update task">
@@ -59,6 +62,9 @@ function TaskDetails({ info }) {
                     </span>
                 </span>
 
+            </div>
+            <div className="task-details-comments">
+                Comments
             </div>
 
         </>

@@ -10,3 +10,7 @@
     flex-direction: row;
     width: 80%;
 }
+
+.task-details-name-description-container {
+    display: flex;
+}
