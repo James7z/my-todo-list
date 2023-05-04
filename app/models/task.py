@@ -55,6 +55,7 @@ class Task(db.Model):
             "checked": self.checked,
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt,
+            "comments": [comment.to_dict() for comment in self.comments]
             # "user": self.user.to_dict(),
             # "project": self.project.to_dict(),
         }

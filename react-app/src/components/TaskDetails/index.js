@@ -12,6 +12,8 @@ function TaskDetails({ info }) {
         dispatch(checkATask(task.id));
     };
 
+    // console.log(task)
+
     return (
         <>
             <div className='task-details-container' >
@@ -61,11 +63,38 @@ function TaskDetails({ info }) {
 
                     </span>
                 </span>
+                <div className="task-details-comments">
+                    <h4>Comments</h4>
+                    {task.comments && task.comments.map((comment, idx) => (
+                        <div className="task-details-comment" key={idx}>
 
+                            <span>{comment.user.username} </span> <span>{comment.updatedAt}</span>
+                            <div>{comment.comment}</div>
+
+                        </div>
+                    )
+                    )}
+                    {/* <div >
+                        <form className="type-comment-box-container" onSubmit={handleCommentSubmit}>
+                            <textarea className="type-comment-box"
+                                rows="1"
+                                type="text"
+                                value={comment}
+                                placeholder="Comment"
+                                onChange={(e) => setComment(e.target.value)}
+                            />
+                            <button className="submit-comment-button"
+                                type="submit"
+                                disabled={comment === ""}
+                            >
+                                Reply
+                            </button>
+                        </form>
+                    </div> */}
+
+                </div>
             </div>
-            <div className="task-details-comments">
-                Comments
-            </div>
+
 
         </>
     )

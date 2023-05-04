@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required
 from sqlalchemy.sql import text
 from app.models import db, Task, Comment, User
-from app.forms import TaskForm
+from app.forms import TaskForm,  CommentForm
 
 from datetime import datetime
 
@@ -107,3 +107,28 @@ def get_task_comments(task_id):
     comments = task.comments
 
     return {comment.id: comment.to_dict() for comment in comments}
+
+# Create task comment
+
+
+@task_routes.route('/<int:task_id>/comments', methods=['POST'])
+@login_required
+def create_task_comments(task_id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        new_comment = Comment(
+            comment=form.comment.data,
+            image_url=form.image_url.data,
+            user_id=form.user_id.data,
+            task_id=task_id,
+            createdAt=datetime.now(),
+            updatedAt=datetime.now()
+        )
+
+        db.session.add(new_comment)
+        db.session.commit()
+
+        ret = Comment.query.get(new_comment.id)
+        return ret.to_dict()
