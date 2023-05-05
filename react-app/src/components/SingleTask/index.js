@@ -6,8 +6,9 @@ import TaskForm from '../TaskForm';
 import TaskDetails from "../TaskDetails";
 import { checkATask } from '../../store/task';
 
-function SingleTask({ info }) {
+function SingleTask({ info, checkInd }) {
     const [task, session] = info;
+    console.log(checkInd)
     const dispatch = useDispatch();
     const handleCheckTask = () => {
         // window.alert("Task id is", task.id)
@@ -20,7 +21,9 @@ function SingleTask({ info }) {
             <div className='single-task-container' >
                 <span className='single-task-content-container'>
                     <button id='check-task-button' onClick={handleCheckTask} title="Check task">
-                        <i class="fa-regular fa-circle fa-xl" style={{ color: "red" }}></i>
+                        <div className={`task-checkbox-circle priority-${task.priority}`} >
+                            <i className={`fa-solid fa-check ${checkInd ? "show" : "hidden"}`}></i>
+                        </div>
                     </button>
                     <span className='single-task-name-due-date-container'>
                         <div>

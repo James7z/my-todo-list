@@ -55,7 +55,7 @@ function HomePage({ isLoaded }) {
                     <ul>
                         {tasks && taskUncheckedOrdered.map((task, idx) => (
                             <li className="home-page-task" key={idx}>
-                                <SingleTask info={[task, session]} />
+                                <SingleTask info={[task, session]} checkInd={false} />
                             </li>
                         )
                         )}
@@ -75,7 +75,7 @@ function HomePage({ isLoaded }) {
                         <ul>
                             {tasks && taskCheckedOrdered.map((task, idx) => (
                                 <li className="home-page-task" key={idx}>
-                                    <SingleTask info={[task, session]} />
+                                    <SingleTask info={[task, session]} checkInd={true} />
                                 </li>
                             )
                             )}
