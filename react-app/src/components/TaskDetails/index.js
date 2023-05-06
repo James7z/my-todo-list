@@ -68,7 +68,8 @@ function TaskDetails({ info }) {
                     {task.comments && task.comments.map((comment, idx) => (
                         <div className="task-details-comment" key={idx}>
 
-                            <span>{comment.user.username} </span> <span>{comment.updatedAt}</span>
+                            <span>{comment.user.username} </span>
+                            <span>{comment.updatedAtStr} </span>
                             <div>{comment.comment}</div>
 
                         </div>
