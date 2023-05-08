@@ -8,7 +8,7 @@ import { checkATask } from '../../store/task';
 
 function SingleTask({ info, checkInd }) {
     const [task, session] = info;
-    console.log(checkInd)
+    //console.log(checkInd)
     const dispatch = useDispatch();
     const handleCheckTask = () => {
         // window.alert("Task id is", task.id)
@@ -39,7 +39,7 @@ function SingleTask({ info, checkInd }) {
                             <span title="Comment on task" >
                                 <OpenModalButton
                                     icon={"fa-regular fa-comment"}
-                                    modalComponent={<TaskDetails info={info} />}
+                                    modalComponent={<TaskDetails info={info} checkInd={checkInd} />}
                                 />
                             </span>
 

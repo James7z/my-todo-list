@@ -52,10 +52,11 @@ class Task(db.Model):
             "due_date_string": self.due_date,
             "user_id": self.user_id,
             "project_id": self.project_id,
+            "project_name": self.project.project_name if self.project else None,
             "checked": self.checked,
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt,
-            "comments": [comment.to_dict() for comment in self.comments]
+            "comments": [comment.to_dict() for comment in self.comments],
             # "user": self.user.to_dict(),
-            # "project": self.project.to_dict(),
+            # "project": self.project.to_dict()
         }
