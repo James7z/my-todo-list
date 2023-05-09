@@ -57,6 +57,7 @@ class Task(db.Model):
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt,
             "comments": [comment.to_dict() for comment in self.comments],
+            "labels": [label.to_dict() for label in self.labels],
             # "user": self.user.to_dict(),
             # "project": self.project.to_dict()
         }
