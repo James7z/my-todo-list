@@ -126,3 +126,13 @@ def create_user_project(user_id):
 
         ret = Project.query.get(new_project.id)
         return ret.to_dict()
+
+
+# Get an user's labels
+
+@user_routes.route('/<int:user_id>/labels')
+@login_required
+def get_user_labels(user_id):
+    user = User.query.get(user_id)
+    labels = user.labels
+    return {label.id: label.to_dict() for label in labels}
