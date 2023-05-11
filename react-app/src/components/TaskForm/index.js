@@ -14,6 +14,7 @@ export default function TaskForm({ task, formType, user }) {
     const [dueDateStr, setDueDateStr] = useState(task.due_date ? new Intl.DateTimeFormat('en-US').format((new Date(task.due_date_string.slice(0, 26)))) : dateStr)
     const [priority, setPriority] = useState(task.priority || "4")
     const [project_id, setProjectId] = useState(task.project_id || 0)
+    const [label_ids, setLabelIds] = useState(task.label_ids || "")
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
     const projects = useSelector(state => state.project.UserProjects);
@@ -36,7 +37,7 @@ export default function TaskForm({ task, formType, user }) {
         if (errors.length > 0) return setErrors(errors)
 
         let dueDate = (new Date(dueDateStr)).toISOString().slice(0, 10);
-        const taskObj = { task_name: taskName, description: description, priority: priority, due_date: dueDate, project_id: project_id }
+        const taskObj = { task_name: taskName, description: description, priority: priority, due_date: dueDate, project_id: project_id, label_ids: label_ids }
         //console.log(taskObj)
         if (formType === "Create a New Task") {
             dispatch(createAUserTask(user.id, taskObj))
@@ -125,6 +126,33 @@ export default function TaskForm({ task, formType, user }) {
                             ))}
                         </select>
                     </span>
+
+                    <div className="label-container">
+                        <div className="select-btn">
+                            <span className="btn-text">
+                                Label
+                            </span>
+                            <span class="arrow-dwn">
+                                <i className="fa-solid fa-chevron-down"></i>
+                            </span>
+
+                        </div>
+                        <ul className="list-items">
+                            <li className="item">
+                                <span className="checkbox">
+                                    <i className="fa-solid fa-check check-icon"></i>
+                                </span>
+                                <span className="item-text">HTML </span>
+                            </li>
+                            <li className="item">
+                                <span className="checkbox">
+                                    <i className="fa-solid fa-check check-icon"></i>
+                                </span>
+                                <span className="item-text">CSS </span>
+                            </li>
+                        </ul>
+                    </div>
+
                     <div className="task-editor-footer-buttons-container">
                         <button type="button" onClick={() => closeModal()} >Cancel</button>
                         <button type="submit" >{buttonStr} </button>

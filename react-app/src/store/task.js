@@ -48,12 +48,12 @@ export const getProjectTask = (projectId) => async (dispatch) => {
 
 
 export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
-    const { task_name, description, priority, due_date, project_id } = taskObj
+    const { task_name, description, priority, due_date, project_id, label_ids } = taskObj
     const response = await fetch(`/api/users/${user_id}/tasks`, {
         method: "POST",
         headers: { "Content-Type": "application/json", },
         body: JSON.stringify({
-            task_name, description, priority, due_date, project_id
+            task_name, description, priority, due_date, project_id, label_ids
         })
     });
     if (response.ok) {
@@ -67,12 +67,12 @@ export const createAUserTask = (user_id, taskObj) => async (dispatch) => {
 };
 
 export const updateATask = (task_id, taskObj) => async (dispatch) => {
-    const { task_name, description, priority, due_date, project_id } = taskObj
+    const { task_name, description, priority, due_date, project_id, label_ids } = taskObj
     const response = await fetch(`/api/tasks/${task_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", },
         body: JSON.stringify({
-            task_name, description, priority, due_date, project_id
+            task_name, description, priority, due_date, project_id, label_ids
         })
     });
     if (response.ok) {

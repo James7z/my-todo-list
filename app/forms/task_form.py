@@ -8,3 +8,4 @@ class TaskForm(FlaskForm):
     priority = IntegerField("priority")
     due_date = DateField("Due date")
     project_id = IntegerField("Project ID")
+    label_ids = StringField("Labels")

@@ -11,18 +11,11 @@ project_routes = Blueprint('projects', __name__)
 # Get all projects route
 
 
-@project_routes.route('/', methods=['GET'])
+@project_routes.route('', methods=['GET'])
 def get_projects():
     projects = Project.query.all()
     return [project.to_dict() for project in projects]
-
-
-@project_routes.route('', methods=['GET'])
-def get_tproject2():
-    projects = Project.query.all()
-    # print(projects)
-    return [project.to_dict() for project in projects]
-
+    # return "project"
 
 # Update project
 
@@ -72,24 +65,24 @@ def delete_project(project_id):
 # Get a single project
 
 
-# Get tasks under an project
 @project_routes.route('/<int:project_id>')
 @login_required
 def get_single_project(project_id):
     project = Project.query.get(project_id)
 
     if not project:
-        return {"errors": ["Invalid Delete Request"]}
+        return {"errors": ["Invalid Get Request"]}
     return project.to_dict()
 
 
+# Get tasks under an project
 @project_routes.route('/<int:project_id>/tasks')
 @login_required
 def get_task_under_project(project_id):
     project = Project.query.get(project_id)
 
     if not project:
-        return {"errors": ["Invalid Delete Request"]}
+        return {"errors": ["Invalid Get Request"]}
 
     tasks = project.tasks
     return {task.id: task.to_dict() for task in tasks}

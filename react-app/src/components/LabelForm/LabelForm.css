@@ -1,4 +1,4 @@
-.project-editor-form {
+.label-editor-form {
     background-color: rgb(16, 143, 193);
     border-radius: 5px;
     width: 350px;
@@ -7,7 +7,7 @@
 
 }
 
-.project-editor-form label {
+.label-editor-form label {
     font-weight: normal;
     margin: 2px 2%;
     background-color: rgb(16, 143, 193);
@@ -17,12 +17,12 @@
 }
 
 
-.project-editor-input-fields {
+.label-editor-input-fields {
     margin: 10px 10px 10px;
 
 }
 
-.project-editor-input-fields input {
+.label-editor-input-fields input {
     width: 91%;
     margin: 2px 2%;
     border-radius: 8px;
@@ -33,7 +33,7 @@
 
 }
 
-.project-editor-form select {
+.label-editor-form select {
     font-size: 16px;
     width: 97%;
     margin: 2px 2%;

@@ -1,46 +1,43 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { createAUserProject, updateAUserProject } from "../../store/project";
-import './ProjectForm.css'
+import { createAUserLabel, updateAUserLabel } from "../../store/label";
+import './LabelForm.css'
 
-export default function LableForm({ comment, formType, userId }) {
-    const [comment_name, setCommentName] = useState(comment.project_name);
-    const [color, setColor] = useState(comment.color || "Red");
-    const [view_type, setViewType] = useState(comment.view_type || "List")
+export default function LableForm({ label, formType, userId }) {
+    const [label_name, setLabelName] = useState(label.label_name);
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
     const dispatch = useDispatch();
-    const colors = ["Red", "Orange", "Yellow", "Blue", "Green", "Teal", "Grey", "Lavender"]
-    const viewTypes = ["List", "Board"]
+
 
     let titleStr = '';
     let buttonStr = '';
-    if (formType === "Create a New Comment") {
-        titleStr = 'Add comment'
+    if (formType === "Create a New Label") {
+        titleStr = 'Add label'
         buttonStr = "Add";
     }
-    if (formType === "Update a Comment") {
-        titleStr = 'Update comment'
+    if (formType === "Update a Label") {
+        titleStr = 'Update label'
         buttonStr = "Update";
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const commentObj = { comment_name, color, view_type }
+        const labelObj = { label_name }
 
         let errors = [];
 
-        if (comment_name.length > 50) errors.push("Please provide a comment name less than 50 characters")
+        if (label_name.length > 50) errors.push("Please provide a label name less than 50 characters")
 
         if (errors.length > 0) return setErrors(errors)
-        //console.log(projectObj)
-        if (formType === "Create a New Comment") {
-            dispatch(createAUserComment(userId, commentObj))
+
+        if (formType === "Create a New Label") {
+            dispatch(createAUserLabel(userId, labelObj))
                 .then(closeModal)
         }
-        if (formType === "Update a Comment") {
-            dispatch(updateAUserComment(comment.id, commentObj))
+        if (formType === "Update a Label") {
+            dispatch(updateAUserLabel(label.id, labelObj))
                 .then(closeModal)
         }
 
@@ -49,7 +46,7 @@ export default function LableForm({ comment, formType, userId }) {
     return (
         <>
 
-            <form onSubmit={handleSubmit} className={`project-editor-form`}  >
+            <form onSubmit={handleSubmit} className={`label-editor-form`}  >
                 {/* <h2>
                     {titleStr}
                 </h2> */}
@@ -58,44 +55,24 @@ export default function LableForm({ comment, formType, userId }) {
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
-                <div className="project-editor-editing-area">
-                    <div className="project-editor-input-fields">
+                <div className="label-editor-editing-area">
+                    <div className="label-editor-input-fields">
                         <div>
-                            <label>Project Name</label>
+                            <label>Label Name</label>
                             <input
                                 type="text"
-                                value={project_name}
-                                placeholder="Enter your project Name"
-                                onChange={(e) => setProjectName(e.target.value)}
+                                value={label_name}
+                                placeholder="Enter your label Name"
+                                onChange={(e) => setLabelName(e.target.value)}
                                 required
                             />
                         </div>
 
                     </div>
-                    <div className="project-editor-color project-editor-input-fields">
-                        <div>
-                            <label for="color">Color:</label>
-                            <select name="color" id="color" onChange={(e) => setColor(e.target.value)}>
-                                {colors.map(item => (
-                                    <option value={`${item}`} selected={item == color}>{item}</option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-                    <div className="project-editor-view-type project-editor-input-fields">
-                        <div>
-                            <label for="viewType">View Type:</label>
-                            <select name="viewType" id="viewType" onChange={(e) => setViewType(e.target.value)}>
-                                {viewTypes.map(item => (
-                                    <option value={`${item}`} selected={item == view_type}>{item}</option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
                 </div>
 
-                <div className="project-editor-footer project-editor-input-fields">
-                    <div className="project-editor-footer-buttons-container">
+                <div className="label-editor-footer label-editor-input-fields">
+                    <div className="label-editor-footer-buttons-container">
                         <button type="button" onClick={() => closeModal()} >Cancel</button>
                         <button type="submit" >{buttonStr} </button>
                     </div>

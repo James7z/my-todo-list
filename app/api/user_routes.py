@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, db, Task, Project
-from app.forms import TaskForm, ProjectForm
+from app.models import User, db, Task, Project, Label
+from app.forms import TaskForm, ProjectForm, LabelForm
 from datetime import datetime
 
 user_routes = Blueprint('users', __name__)
@@ -47,7 +47,8 @@ def create_user_task(user_id):
     form = TaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     print('***************')
-    print(form.project_id.data)
+    print(form.label_ids.data)
+    label_ids = [int(id) for id in form.label_ids.data.split(',')]
 
     if form.validate_on_submit():
         if form.project_id.data > 0:
@@ -71,6 +72,10 @@ def create_user_task(user_id):
                 createdAt=datetime.now(),
                 updatedAt=datetime.now()
             )
+        db.session.add(new_task)
+        for label_id in label_ids:
+            new_label = Label.query.get(label_id)
+            new_task.labels.append(new_label)
     # new_task = Task(
     #     task_name=data["task_name"],
     #     description=data["description"],
@@ -82,7 +87,7 @@ def create_user_task(user_id):
     #     createdAt=datetime.now(),
     #     updatedAt=datetime.now()
     # )
-        db.session.add(new_task)
+
         db.session.commit()
 
         ret = Task.query.get(new_task.id)
@@ -136,3 +141,27 @@ def get_user_labels(user_id):
     user = User.query.get(user_id)
     labels = user.labels
     return {label.id: label.to_dict() for label in labels}
+
+
+# Create an user's label
+
+
+@ user_routes.route('/<int:user_id>/labels', methods=['POST'])
+@ login_required
+def create_user_label(user_id):
+    form = LabelForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        new_label = Label(
+            label_name=form.label_name.data,
+            user_id=user_id,
+            createdAt=datetime.now(),
+            updatedAt=datetime.now()
+        )
+
+        db.session.add(new_label)
+        db.session.commit()
+
+        ret = Label.query.get(new_label.id)
+        return ret.to_dict()

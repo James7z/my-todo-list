@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import task from './task';
 import project from './project'
+import label from './label'
 
 const rootReducer = combineReducers({
   session,
   task,
-  project
+  project,
+  label
 });
 
 
