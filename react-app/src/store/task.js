@@ -128,6 +128,58 @@ export const deleteTask = (taskId, userId) => async (dispatch) => {
 }
 
 
+export const createATaskComment = (task_id, commentObj) => async (dispatch) => {
+    const { comment, image_url, user_id } = commentObj
+    const response = await fetch(`/api/tasks/${task_id}/comments`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", },
+        body: JSON.stringify({
+            comment, image_url, user_id
+        })
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(getUserTasks(user_id));
+        return data
+    }
+};
+
+
+export const updateAComment = (comment_id, commentObj) => async (dispatch) => {
+    const { comment, image_url, user_id } = commentObj
+    const response = await fetch(`/api/comments/${comment_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", },
+        body: JSON.stringify({
+            comment, image_url, user_id
+        })
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(getUserTasks(user_id));
+        return data
+    }
+};
+
+
+export const deleteComment = (commentId, user_id) => async (dispatch) => {
+
+    const response = await fetch(`/api/comments/${commentId}`, {
+        method: "DELETE",
+    })
+    if (response.ok) {
+        dispatch(getUserTasks(user_id));
+        return response
+    }
+
+}
+
 // const initialState = { userTasks: null, projectTasks: null };
 const initialState = { AllTasks: null };
 

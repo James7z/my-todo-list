@@ -44,56 +44,13 @@ export const getTaskComments = (task_id) => async (dispatch) => {
     }
 };
 
-export const createATaskComment = (task_id, commentObj) => async (dispatch) => {
-    const { comment, image_url, user_id } = commentObj
-    const response = await fetch(`/api/tasks/${task_id}/comments`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", },
-        body: JSON.stringify({
-            comment, image_url, user_id
-        })
-    });
-    if (response.ok) {
-        const data = await response.json();
-        if (data.errors) {
-            return;
-        }
-        dispatch(getTaskComments(task_id));
-        return data
-    }
-};
 
 
-export const updateAComment = (comment_id, commentObj) => async (dispatch) => {
-    const { comment, image_url, user_id } = commentObj
-    const response = await fetch(`/api/comments/${comment_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", },
-        body: JSON.stringify({
-            comment, image_url, user_id
-        })
-    });
-    if (response.ok) {
-        const data = await response.json();
-        if (data.errors) {
-            return;
-        }
-        dispatch(getTaskComments(data.task_id));
-        return data
-    }
-};
 
 
-export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${commentId}`, {
-        method: "DELETE",
-    })
-    if (response.ok) {
-        dispatch(removeComment(commentId))
-        return response
-    }
 
-}
+
+
 
 
 
