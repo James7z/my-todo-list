@@ -30,5 +30,6 @@ class Comment(db.Model):
             "task_id": self.task_id,
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt,
+            "updatedAtStr": self.updatedAt.strftime("%A %d. %B"),
             "user": self.user.to_dict()
         }

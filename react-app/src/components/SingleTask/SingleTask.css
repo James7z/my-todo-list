@@ -17,6 +17,9 @@
     border: none;
     background-color: white;
     align-self: flex-start;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 }
 
 .single-task-content-container {
@@ -50,6 +53,34 @@
     word-wrap: break-word;
 }
 
-.single-task-date-comment-container i {
+.single-task-date-comment-container div {
     cursor: pointer;
+}
+
+.task-checkbox-circle {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dcdcdc;
+    color: #dcdcdc;
+    border-width: 2px;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+}
+
+.task-checkbox-circle.priority-1 {
+    border-color: #d1453b;
+    color: #d1453b;
+}
+
+.task-checkbox-circle.priority-2 {
+    border-color: #eb8909;
+    color: #eb8909;
+}
+
+.task-checkbox-circle.priority-3 {
+    border-color: #246fe0;
+    color: #246fe0;
 }

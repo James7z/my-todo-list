@@ -4,48 +4,48 @@ import { Redirect, NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import './ProjectTasks.css'
-import { getSingleProject, getUserProjects } from "../../store/project";
-import { getProjectTask } from "../../store/task";
+import { getSingleLabel, getUserLabels } from "../../store/label";
+import { getLabelTask } from "../../store/task";
 import SingleTask from "../SingleTask";
 import TaskForm from "../TaskForm";
 import LeftMenu from '../LeftMenu';
 
-export default function ProjectTasks() {
+export default function LabelTasks() {
     const dispatch = useDispatch();
-    const { projectId } = useParams();
+    const { labelId } = useParams();
     const [openCheckedTask, setOpenCheckedTask] = useState(false);
     const session = useSelector(state => state.session);
     const tasks = useSelector(state => state.task.AllTasks);
-    const project = useSelector(state => {
-        if (state.project) return state.project.SingleProject
+    const label = useSelector(state => {
+        if (state.label) return state.label.SingleLabel
     })
     let taskUncheckedOrdered = [];
     let taskCheckedOrdered = [];
-    if (tasks && project) {
-        taskUncheckedOrdered = Object.values(tasks).filter(task => task.checked === false && task.project_id === project.id).sort((a, b) => a.id - b.id);
-        taskCheckedOrdered = Object.values(tasks).filter(task => task.checked === true && task.project_id === project.id).sort((a, b) => a.id - b.id)
+    if (tasks && label) {
+        taskUncheckedOrdered = Object.values(tasks).filter(task => task.checked === false).sort((a, b) => a.id - b.id);
+        taskCheckedOrdered = Object.values(tasks).filter(task => task.checked === true).sort((a, b) => a.id - b.id)
     }
     const sessionUser = session.user
-    const task = { task_name: '', description: '', priority: '', due_date: '', project_id: projectId }
+    const task = { task_name: '', description: '', priority: '', due_date: '', project_id: null, label_ids: "" }
 
 
     useEffect(() => {
-        dispatch(getSingleProject(projectId))
-        dispatch(getUserProjects(sessionUser.id))
-        dispatch(getProjectTask(projectId))
-    }, [dispatch, projectId])
+        dispatch(getSingleLabel(labelId))
+        dispatch(getUserLabels(sessionUser.id))
+        dispatch(getLabelTask(labelId))
+    }, [dispatch, labelId])
 
 
     if (!sessionUser) return <Redirect to="/" />;
 
-    if (!project) {
+    if (!label) {
         return (
             <>
-                <h1>Unable to retrieve project. Please try again shortly. </h1>
+                <h1>Unable to retrieve label. Please try again shortly. </h1>
             </>
         )
     }
-    if (project.id === 0) return <Redirect to='/home' />;
+    if (label.id === 0) return <Redirect to='/home' />;
 
 
     return (
@@ -57,7 +57,7 @@ export default function ProjectTasks() {
                 <div className='project-page-tasks-container'>
                     <div className='project-title-buttons-container'>
                         <h3>
-                            {project.project_name}
+                            {label.label_name}
                         </h3>
                         <i class="fa-regular fa-circle-check" title='Show completed tasks' onClick={() => setOpenCheckedTask(!openCheckedTask)}></i>
                     </div>

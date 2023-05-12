@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 from flask_login import login_required
 from sqlalchemy.sql import text
-from app.models import db, Task, Comment, User
-from app.forms import TaskForm
+from app.models import db, Task, Comment, User, Label
+from app.forms import TaskForm,  CommentForm
 
 from datetime import datetime
 
@@ -52,6 +52,8 @@ def edit_task(task_id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     task = Task.query.get(task_id)
+    label_ids = [int(id) for id in request.get_json()['label_ids'].split(',')]
+    cur_label_ids = [label.id for label in task.labels]
 
     if not task:
         return {"errors": ["Invalid Edit Request"]}
@@ -71,9 +73,21 @@ def edit_task(task_id):
 
         task.updatedAt = datetime.now()
 
+        for label_id in label_ids:
+            if label_id not in cur_label_ids:
+                new_label = Label.query.get(label_id)
+                task.labels.append(new_label)
+
+        for label_id in cur_label_ids:
+            if label_id not in label_ids:
+                remove_label = Label.query.get(label_id)
+                task.labels.remove(remove_label)
+
         db.session.commit()
         ret = Task.query.get(task_id)
         return ret.to_dict()
+        # return label_ids
+        # return cur_label_ids
 
     if form.errors:
         return {"errors": form.errors}
@@ -93,3 +107,42 @@ def delete_task(task_id):
     db.session.delete(task)
     db.session.commit()
     return {"id": task_id}
+
+
+# Get task comments
+@task_routes.route('/<int:task_id>/comments', methods=['GET'])
+@login_required
+def get_task_comments(task_id):
+
+    task = Task.query.get(task_id)
+    if not task:
+        return {"errors": ["Invalid Get Request"]}
+
+    comments = task.comments
+
+    return {comment.id: comment.to_dict() for comment in comments}
+
+# Create task comment
+
+
+@task_routes.route('/<int:task_id>/comments', methods=['POST'])
+@login_required
+def create_task_comments(task_id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        new_comment = Comment(
+            comment=form.comment.data,
+            image_url=form.image_url.data,
+            user_id=form.user_id.data,
+            task_id=task_id,
+            createdAt=datetime.now(),
+            updatedAt=datetime.now()
+        )
+
+        db.session.add(new_comment)
+        db.session.commit()
+
+        ret = Comment.query.get(new_comment.id)
+        return ret.to_dict()

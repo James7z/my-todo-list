@@ -4,6 +4,7 @@ import { Redirect, NavLink } from "react-router-dom";
 import './Homepage.css';
 import { getUserTasks } from '../../store/task';
 import { getUserProjects } from '../../store/project';
+import { getUserLabels } from '../../store/label';
 import SingleTask from '../SingleTask';
 import OpenModalButton from '../OpenModalButton';
 import TaskForm from '../TaskForm';
@@ -23,11 +24,12 @@ function HomePage({ isLoaded }) {
         taskCheckedOrdered = Object.values(tasks).filter(task => task.checked === true).sort((a, b) => a.id - b.id)
     }
 
-    const task = { task_name: '', description: '', priority: '', due_date: '', project_id: null }
+    const task = { task_name: '', description: '', priority: '', due_date: '', project_id: null, label_ids: "" }
 
     useEffect(() => {
         dispatch(getUserTasks(sessionUser.id))
         dispatch(getUserProjects(sessionUser.id))
+        dispatch(getUserLabels(sessionUser.id))
     }, [dispatch])
 
     if (!sessionUser) return <Redirect to="/" />;
@@ -55,7 +57,7 @@ function HomePage({ isLoaded }) {
                     <ul>
                         {tasks && taskUncheckedOrdered.map((task, idx) => (
                             <li className="home-page-task" key={idx}>
-                                <SingleTask info={[task, session]} />
+                                <SingleTask info={[task, session]} checkInd={false} />
                             </li>
                         )
                         )}
@@ -75,7 +77,7 @@ function HomePage({ isLoaded }) {
                         <ul>
                             {tasks && taskCheckedOrdered.map((task, idx) => (
                                 <li className="home-page-task" key={idx}>
-                                    <SingleTask info={[task, session]} />
+                                    <SingleTask info={[task, session]} checkInd={true} />
                                 </li>
                             )
                             )}

@@ -43,6 +43,10 @@ class Task(db.Model):
     )
 
     def to_dict(self):
+        labels = [label.to_dict() for label in self.labels]
+        label_ids = ""
+        if len(labels) > 0:
+            label_ids = ",".join([str(label.id) for label in self.labels])
         return {
             "id": self.id,
             "task_name": self.task_name,
@@ -52,9 +56,13 @@ class Task(db.Model):
             "due_date_string": self.due_date,
             "user_id": self.user_id,
             "project_id": self.project_id,
+            "project_name": self.project.project_name if self.project else None,
             "checked": self.checked,
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt,
+            "comments": [comment.to_dict() for comment in self.comments],
+            "labels": labels,
+            "label_ids":  label_ids,
             # "user": self.user.to_dict(),
-            # "project": self.project.to_dict(),
+            # "project": self.project.to_dict()
         }

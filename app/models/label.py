@@ -21,6 +21,8 @@ class Label(db.Model):
         back_populates="labels"
     )
 
+    user = db.relationship("User", back_populates="labels")
+
     def to_dict(self):
         return {
             "id": self.id,

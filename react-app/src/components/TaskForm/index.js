@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Select from 'react-select';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
@@ -14,18 +15,29 @@ export default function TaskForm({ task, formType, user }) {
     const [dueDateStr, setDueDateStr] = useState(task.due_date ? new Intl.DateTimeFormat('en-US').format((new Date(task.due_date_string.slice(0, 26)))) : dateStr)
     const [priority, setPriority] = useState(task.priority || "4")
     const [project_id, setProjectId] = useState(task.project_id || 0)
+    const [label_ids, setLabelIds] = useState(task.label_ids || "")
+    const [showLabels, setShowLabels] = useState(false)
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
     const projects = useSelector(state => state.project.UserProjects);
-
+    const labels = useSelector(state => state.label.UserLabels);
+    const labelsArr = Object.values(labels)
     const dispatch = useDispatch();
+    let labelOptions = [];
+    labelsArr.forEach(el => {
+        labelOptions.push({ value: el.id, label: el.label_name })
+    });
+    let taskLabels = [];
+    if (label_ids) label_ids.split(',').forEach(id => taskLabels.push({ value: id, label: labels[id].label_name }))
+
+    const [selectedOption, setSelectedOption] = useState(label_ids ? taskLabels : null);
 
     let buttonStr = '';
     if (formType === "Create a New Task") buttonStr = "Submit";
     if (formType === "Update a Task") {
         buttonStr = "Update";
     }
-
+    //console.log("label ids are", taskLabels)
     const handleSubmit = async (e) => {
         e.preventDefault();
         let errors = [];
@@ -36,8 +48,11 @@ export default function TaskForm({ task, formType, user }) {
         if (errors.length > 0) return setErrors(errors)
 
         let dueDate = (new Date(dueDateStr)).toISOString().slice(0, 10);
-        const taskObj = { task_name: taskName, description: description, priority: priority, due_date: dueDate, project_id: project_id }
-        //console.log(taskObj)
+        let label_ids_str = selectedOption.map(el => el.value).join(',')
+        console.log("handle submit", label_ids_str)
+        const taskObj = { task_name: taskName, description: description, priority: priority, due_date: dueDate, project_id: project_id, label_ids: label_ids_str }
+        //console.log(selectedOption)
+        //console.log(label_ids)
         if (formType === "Create a New Task") {
             dispatch(createAUserTask(user.id, taskObj))
                 .then(closeModal)
@@ -52,6 +67,12 @@ export default function TaskForm({ task, formType, user }) {
     const handleRemoveDueDate = () => {
         setDueDateStr("")
     }
+
+    const handleChange = (e) => {
+        let value = Array.from(e.target.selectedOptions, option => option.value);
+        setLabelIds({ values: value });
+    }
+
     return (
         <>
             <form onSubmit={handleSubmit} className={`task-editor-form `}  >
@@ -125,6 +146,21 @@ export default function TaskForm({ task, formType, user }) {
                             ))}
                         </select>
                     </span>
+
+                    <div className="label-container">
+                        <label>Label <br></br> </label>
+                        <Select
+                            defaultValue={selectedOption}
+                            isMulti
+                            name="labels"
+                            options={labelOptions}
+                            onChange={setSelectedOption}
+                            className="basic-multi-select"
+                            classNamePrefix="select"
+                        />
+
+                    </div>
+
                     <div className="task-editor-footer-buttons-container">
                         <button type="button" onClick={() => closeModal()} >Cancel</button>
                         <button type="submit" >{buttonStr} </button>
