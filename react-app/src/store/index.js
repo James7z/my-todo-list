@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   task,
   project,
   label,
-  comment
+  //comment
 });
 
 
