@@ -4,6 +4,7 @@ import DeleteTaskModal from '../DeleteTaskModal';
 import OpenModalButton from '../OpenModalButton';
 import TaskForm from '../TaskForm';
 import { checkATask } from '../../store/task';
+import { createATaskComment } from "../../store/comment";
 import { useState } from "react";
 
 function TaskDetails({ info, checkInd }) {
@@ -23,8 +24,9 @@ function TaskDetails({ info, checkInd }) {
         if (comment.length > 2000) errors.push("Please provide a comment less than 2000 characters")
 
         if (errors.length > 0) return setCommentErrors(errors)
-        const commentObj = { comment: comment, image_url: "", user_id: session.user.id, task_id: task.id }
-        //console.log(taskObj)
+        const commentObj = { comment: comment, image_url: "", user_id: session.user.id }
+        console.log(commentObj)
+        dispatch(createATaskComment(task.id, commentObj))
         // if (formType === "Create a New Task") {
         //     dispatch(createAUserTask(user.id, taskObj))
         //         .then(closeModal)
@@ -99,6 +101,7 @@ function TaskDetails({ info, checkInd }) {
                                     placeholder="Comment"
                                     onChange={(e) => setComment(e.target.value)}
                                 />
+                                <br></br>
                                 <button className="submit-comment-button"
                                     type="submit"
                                     disabled={comment === ""}
@@ -119,6 +122,10 @@ function TaskDetails({ info, checkInd }) {
                     </div>
                     <div>
                         Priority: <i className={`fa-solid fa-flag priority-${task.priority}`}></i>   {`P${task.priority}`}
+                    </div>
+
+                    <div>
+                        Labels : {task.labels ? task.labels.map(label => (<span>{`#${label.label_name} `}</span>)) : ""}
                     </div>
                 </div>
             </div>

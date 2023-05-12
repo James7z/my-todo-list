@@ -44,6 +44,17 @@ export const getProjectTask = (projectId) => async (dispatch) => {
     }
 };
 
+export const getLabelTask = (labelId) => async (dispatch) => {
+    const response = await fetch(`/api/labels/${labelId}/tasks`);
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(loadTasks(data));
+        return data
+    }
+};
 
 
 

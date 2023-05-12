@@ -55,4 +55,7 @@
 
 .task-details-comment {
     padding: 10px 2px 10px 2px;
+    margin: 8px 0;
+    border: #505050 1.5px solid;
+    border-radius: 8px;
 }

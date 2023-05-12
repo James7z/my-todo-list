@@ -88,7 +88,7 @@ function LeftMenu() {
                             {labels && Object.values(labels).map((label, idx) => (
                                 <>
                                     <div className='project-list-container'>
-                                        <NavLink to={`/projects/${label.id}`} className="project-tasks-link">
+                                        <NavLink to={`/labels/${label.id}`} className="project-tasks-link">
                                             <div className='project-list-project-name'>
                                                 {label.label_name}
                                             </div>

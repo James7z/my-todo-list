@@ -143,12 +143,17 @@
     width: 100%;
 }
 
-.select-btn {
+.basic-multi-select {
+    margin: 5px 6px;
+}
+
+
+/* .select-btn {
     display: flex;
-    height: 50px;
+    height: 30px;
     align-items: center;
     justify-content: space-between;
-    padding: 0 16px;
+    padding: 8px 8px 4px;
     border-radius: 8px;
     cursor: pointer;
     background-color: #FFF;
@@ -222,4 +227,4 @@
 
 .item.checked .check-icon {
     transform: scale(1);
-}
+} */
