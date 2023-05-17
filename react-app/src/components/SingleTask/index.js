@@ -54,11 +54,7 @@ function SingleTask({ info, checkInd }) {
                             modalComponent={<TaskForm user={session.user} task={task} formType="Update a Task" />}
                         />
                     </span>
-                    <span>
-                        <button onClick={() => window.alert("Comments feature coming soon.")} title="Comment on task">
-                            <i class="fa-regular fa-comment"></i>
-                        </button>
-                    </span>
+
                     <span title="Delete task">
                         <OpenModalButton
                             icon={"fa-solid fa-trash-can"}
