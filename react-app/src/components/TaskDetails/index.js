@@ -246,10 +246,10 @@ function TaskDetails({ info, checkInd }) {
                                         {/* <div className={`origional-commenter-options-container ${comment?.user_id !== session?.user?.id && "hidden"}`}>
                                             <CommentOptionsMenu commentId={comment.id} />
                                         </div> */}
-                                        <div title="Delete task">
+                                        <div title="Delete comment" >
                                             <OpenModalButton
                                                 icon={"fa-solid fa-trash-can"}
-                                                modalComponent={<DeleteCommentModal commentId={comment.id} />}
+                                                modalComponent={<DeleteCommentModal commentId={comment.id} userId={session?.user?.id} />}
                                             />
 
                                         </div>

@@ -3,12 +3,12 @@ import { useModal } from "../../context/Modal";
 import { deleteComment } from "../../store/task";
 import "./CommentOptionsMenu.css"
 
-const DeleteCommentModal = ({ commentId }) => {
+const DeleteCommentModal = ({ commentId, userId }) => {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
 
     const handleDelete = () => {
-        dispatch(deleteComment(commentId))
+        dispatch(deleteComment(commentId, userId))
             .then(closeModal)
     }
 
