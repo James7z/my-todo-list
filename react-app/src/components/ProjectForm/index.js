@@ -82,7 +82,7 @@ export default function ProjectForm({ project, formType, userId }) {
                             </select>
                         </div>
                     </div>
-                    <div className="project-editor-view-type project-editor-input-fields">
+                    <div className="project-editor-view-type project-editor-input-fields hidden">
                         <div>
                             <label for="viewType">View Type:</label>
                             <select name="viewType" id="viewType" onChange={(e) => setViewType(e.target.value)}>

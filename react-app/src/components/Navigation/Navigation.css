@@ -10,6 +10,10 @@
   display: none;
 }
 
+#searchbar-container.hidden {
+  display: none;
+}
+
 #navbar {
   display: flex;
   align-items: center;
