@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import './WelcomePage.css';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
-import LoginFormModal from "../LoginFormModal";
+//import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 
 
