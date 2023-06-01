@@ -8,15 +8,6 @@
 
 }
 
-.home-page-content-container button {
-    cursor: pointer;
-}
-
-.home-page-task {
-    list-style: none;
-    /* margin: 3px 10%; */
-    border-bottom: 1px solid #f0f0f0;
-}
 
 .project-list-container {
     width: 220px;
