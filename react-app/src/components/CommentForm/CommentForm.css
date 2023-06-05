@@ -81,21 +81,3 @@
     padding: 8px;
     padding-bottom: 4px;
 }
-
-
-
-.project-editor-footer-buttons-container {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-    margin: 5px 15%;
-}
-
-
-.project-editor-footer button {
-    border-radius: 5px;
-    height: 2em;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 3px;
-}
