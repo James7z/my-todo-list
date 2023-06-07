@@ -40,9 +40,9 @@ function LoginFormModal() {
           </ul>
           <div className="login-input-container">
             <div>
-              <label>
+              {/* <label>
                 Email
-              </label>
+              </label> */}
             </div>
             <div>
               <input
@@ -57,9 +57,9 @@ function LoginFormModal() {
 
           <div className="login-input-container">
             <div>
-              <label>
+              {/* <label>
                 Password
-              </label>
+              </label> */}
             </div>
             <div>
               <input

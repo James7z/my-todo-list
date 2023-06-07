@@ -37,11 +37,14 @@
 .log-in-form input {
     font-weight: 600;
     font-size: 16px;
+    border-radius: 8px;
+    height: 40px;
 }
 
 .login-button {
     width: 90%;
-    margin: 0 5%;
+    margin: 4px 5%;
+
     height: 40px;
     border-radius: 8px;
     font-weight: 700;
@@ -52,7 +55,7 @@
 
 .demo-user-login-container button {
     width: 90%;
-    margin: 2px 5%;
+    margin: 5px 5%;
     height: 40px;
     border-radius: 8px;
     font-weight: 700;
