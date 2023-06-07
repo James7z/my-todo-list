@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select';
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+//import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { createAUserTask, updateATask } from "../../store/task";
 import './TaskForm.css'
@@ -16,7 +16,7 @@ export default function TaskForm({ task, formType, user }) {
     const [priority, setPriority] = useState(task.priority || "4")
     const [project_id, setProjectId] = useState(task.project_id || 0)
     const [label_ids, setLabelIds] = useState(task.label_ids || "")
-    const [showLabels, setShowLabels] = useState(false)
+    //const [showLabels, setShowLabels] = useState(false)
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
     const projects = useSelector(state => state.project.UserProjects);

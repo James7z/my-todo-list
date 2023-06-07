@@ -5,9 +5,48 @@
     padding: 2px 5px;
     font-size: 16px;
 
+
 }
 
-.project-editor-form label {
+
+.project-list-container {
+    width: 220px;
+}
+
+.welcome-message h2 {
+    font-weight: normal;
+}
+
+.welcome-page-signup-button button {
+    background-color: #046fa2;
+    color: white;
+    border-radius: 0.625rem;
+    min-height: 2.75rem;
+    font-weight: 700;
+    font: 1.25em sans-serif;
+    cursor: pointer;
+    justify-content: center;
+    min-width: 10rem;
+    outline: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: normal;
+    z-index: 0;
+    position: relative;
+    top: 40px;
+}
+
+
+.label-editor-form {
+    background-color: rgb(16, 143, 193);
+    border-radius: 5px;
+    width: 350px;
+    padding: 2px 5px;
+    font-size: 16px;
+
+}
+
+.label-editor-form label {
     font-weight: normal;
     margin: 2px 2%;
     background-color: rgb(16, 143, 193);
@@ -17,12 +56,12 @@
 }
 
 
-.project-editor-input-fields {
+.label-editor-input-fields {
     margin: 10px 10px 10px;
 
 }
 
-.project-editor-input-fields input {
+.label-editor-input-fields input {
     width: 91%;
     margin: 2px 2%;
     border-radius: 8px;
@@ -33,7 +72,7 @@
 
 }
 
-.project-editor-form select {
+.label-editor-form select {
     font-size: 16px;
     width: 97%;
     margin: 2px 2%;
@@ -41,22 +80,4 @@
     border: 1px solid #eee;
     padding: 8px;
     padding-bottom: 4px;
-}
-
-
-
-.project-editor-footer-buttons-container {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-    margin: 5px 15%;
-}
-
-
-.project-editor-footer button {
-    border-radius: 5px;
-    height: 2em;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 3px;
 }
