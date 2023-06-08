@@ -41,6 +41,10 @@
 
 }
 
+.task-editor-priority-container option {
+    text-align: center;
+}
+
 .task-editor-form label {
     font-weight: normal;
     margin: 2px 2%;
