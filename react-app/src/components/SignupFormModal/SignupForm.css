@@ -32,11 +32,13 @@
 .sign-up-form input {
     font-weight: 600;
     font-size: 16px;
+    border-radius: 9px;
+    height: 35px;
 }
 
 .sign-up-button {
     width: 90%;
-    margin: 0 5%;
+    margin: 5px 5%;
     height: 40px;
     border-radius: 8px;
     font-weight: 700;
