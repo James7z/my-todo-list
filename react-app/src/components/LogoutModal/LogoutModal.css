@@ -9,7 +9,8 @@
 
 #logout-modal-h2 {
     color: blue;
-    margin-bottom: 40px;
+
+    margin: 2% 5% 40px 5%;
 }
 
 #logout-modal-button-div {
