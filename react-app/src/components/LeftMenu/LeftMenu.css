@@ -11,7 +11,7 @@
 .project-tasks-link a,
 a:visited {
     text-decoration: none;
-    color: blue;
+    /* color: blue; */
 }
 
 .resize_handle {
