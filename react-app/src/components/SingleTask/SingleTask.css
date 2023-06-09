@@ -44,6 +44,7 @@
 
 .single-task-name-due-date-container {
     width: 60%;
+    margin-left: 2%;
 }
 
 .single-task-description {
@@ -68,6 +69,8 @@
     border-radius: 50%;
     height: 14px;
     width: 14px;
+    padding: 2px;
+
 }
 
 .task-checkbox-circle.priority-1 {

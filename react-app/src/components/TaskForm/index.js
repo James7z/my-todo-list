@@ -127,10 +127,10 @@ export default function TaskForm({ task, formType, user }) {
                         <div className="task-editor-priority-container">
                             <label for="priority">Priority: <br></br> </label>
                             <select name="priority" id="priority" onChange={(e) => setPriority(e.target.value)}>
-                                <option value="1" selected={1 == priority}>1</option>
-                                <option value="2" selected={2 == priority}>2</option>
-                                <option value="3" selected={3 == priority}>3</option>
-                                <option value="4" selected={4 == priority}>4</option>
+                                <option value="1" selected={1 === priority}>1</option>
+                                <option value="2" selected={2 === priority}>2</option>
+                                <option value="3" selected={3 === priority}>3</option>
+                                <option value="4" selected={4 === priority}>4</option>
                             </select>
                         </div>
                     </div>

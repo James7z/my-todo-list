@@ -9,11 +9,13 @@
 
 #delete-modal-prompt {
     text-align: center;
+    margin: 2% 5% 40px 5%;
 }
 
 #delete-modal-buttons-container {
     display: flex;
     justify-content: center;
+    margin: 2%;
 }
 
 #cancel-delete-task-button,
