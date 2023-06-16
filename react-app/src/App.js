@@ -15,6 +15,16 @@ import RouteChangeTracker from "./components/GoogleAnalytics/RouteChangeTracker"
 const TRACKING_ID = "G-VMB5D647GS"; // YOUR_OWN_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
 
+ReactGA.event({
+  category: 'User',
+  action: 'Created an Account'
+});
+
+ReactGA.exception({
+  description: 'An error ocurred',
+  fatal: true
+});
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
