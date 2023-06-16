@@ -9,7 +9,11 @@ import WelcomePage from "./components/WelcomePage";
 import Navigation from "./components/Navigation";
 import ProjectTasks from "./components/LeftMenu/ProjectTasks";
 import LabelTasks from "./components/LeftMenu/LabelTasks";
+import ReactGA from 'react-ga';
+import RouteChangeTracker from "./components/GoogleAnalytics/RouteChangeTracker";
 
+const TRACKING_ID = "G-VMB5D647GS"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +42,9 @@ function App() {
             <LabelTasks />
           </Route>
         </Switch>
+
       )}
+      <RouteChangeTracker />
     </>
   );
 }
