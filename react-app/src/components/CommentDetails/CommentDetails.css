@@ -132,3 +132,48 @@
 .origional-commenter-options-menu-section:hover {
     background-color: rgb(65, 65, 65);
 }
+
+
+.label-editor-input-fields {
+    margin: 10px 10px 10px;
+
+}
+
+.label-editor-input-fields input {
+    width: 91%;
+    margin: 2px 2%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+    font-size: 16px;
+
+}
+
+.label-editor-form select {
+    font-size: 16px;
+    width: 97%;
+    margin: 2px 2%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+
+
+.project-editor-footer-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 5px 15%;
+}
+
+
+.project-editor-footer button {
+    border-radius: 5px;
+    height: 2em;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 3px;
+}
