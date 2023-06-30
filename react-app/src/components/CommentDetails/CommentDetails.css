@@ -309,3 +309,57 @@
     background-color: #fafafa;
     cursor: pointer;
 }
+
+.task-react-options-container {
+    margin: 10px 2px;
+}
+
+.task-comments-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-comments-container div.comments-container {
+    margin: 0px;
+    padding: 0px;
+    height: 540px;
+    overflow-x: auto;
+}
+
+.task-comment-container div.task-commenter-information-container {
+    display: flex;
+    padding: 0px;
+}
+
+.task-comments-container div.task-comment-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+
+
+.task-comment-container .task-comment-box {
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.task-comment-container div.task-comment-box {
+    padding: 4px 8px;
+}
+
+.task-commenter-p {
+    margin: 0px;
+}
+
+.task-commenter-p2 {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.task-commenter-username {
+    display: flex;
+    justify-content: space-between;
+
+}
