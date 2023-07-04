@@ -489,24 +489,13 @@
     padding-right: 0px;
 }
 
-.user-menu-section:not(.user-menu-header) {
-    height: 41px;
-    cursor: pointer;
+
+
+#cancel-logout-modal-button {
+    background-color: rgb(146, 146, 146);
 }
 
-.user-menu-section-image {
-    padding-right: 15px;
-}
-
-.user-menu-section.user-menu-header {
-    background-color: rgb(54, 54, 54);
-}
-
-.user-menu-section.user-menu-header * {
-    color: rgb(199, 199, 199);
-}
-
-.user-menu-section.user-menu-header.top {
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
+#confirm-logout-modal-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
 }
