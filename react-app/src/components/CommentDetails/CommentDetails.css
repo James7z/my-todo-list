@@ -565,3 +565,83 @@
     background-color: #fafafa;
     cursor: pointer;
 }
+
+.task-comment-box .task-commenter-username {
+    padding: 0px;
+    cursor: pointer;
+}
+
+.task-comment-box div.task-commenter-username {
+    padding: 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.task-comment-box div.task-comment {
+    padding: 5px 0px;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    height: max-content;
+}
+
+
+.welcome-message {
+    text-align: center;
+    margin: 15px 5px;
+    padding: 10px 10px 0;
+}
+
+
+.welcome-page {
+    text-align: center;
+}
+
+
+
+.welcome-message h2 {
+    font-weight: normal;
+}
+
+.welcome-page-signup-button button {
+    background-color: #046fa2;
+    color: white;
+    border-radius: 0.625rem;
+    min-height: 2.75rem;
+    font-weight: 700;
+    font: 1.25em sans-serif;
+    cursor: pointer;
+    justify-content: center;
+    min-width: 10rem;
+    outline: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: normal;
+    z-index: 0;
+    position: relative;
+    top: 40px;
+}
+
+.project-title-container i {
+    margin: 0 2px;
+    width: 15px;
+    height: 15px;
+}
+
+
+.project-list-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 2px;
+    max-width: 220px;
+}
+
+.project-list-project-name {
+    word-wrap: break-word;
+    max-width: 160px;
+}
+
+.project-action-button {
+    border: none;
+    background-color: #fafafa;
+    cursor: pointer;
+}
