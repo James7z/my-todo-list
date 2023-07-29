@@ -50,9 +50,9 @@ export default function CommentDetails({ comment, formType, userId }) {
         <>
 
             <form onSubmit={handleSubmit} className={`project-editor-form`}  >
-                {/* <h2>
+                <h2>
                     {titleStr}
-                </h2> */}
+                </h2>
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
