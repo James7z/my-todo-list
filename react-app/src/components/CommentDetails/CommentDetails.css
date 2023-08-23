@@ -897,3 +897,60 @@ font-size: 15px;
     border-top-right-radius: 2px;
     border-top-left-radius: 2px;
 }
+
+.hidden {
+    display: none;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+
+
+.task-editor-form {
+    background-color: rgb(16, 143, 193);
+    border-radius: 8px;
+    width: 350px;
+    padding: 2px 5px;
+    font-size: 16px;
+
+}
+
+.task-editor-input-fields input {
+    width: 91%;
+    margin: 2px 2%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+    font-size: 16px;
+
+}
+
+.task-editor-priority-container {
+    display: inline;
+    font-size: 16px;
+    width: 40%;
+    text-align: center;
+}
+
+.task-editor-priority-container label {
+    background-color: transparent;
+    color: white;
+
+}
+
+.task-editor-priority-container option {
+    text-align: center;
+}
+
+.task-editor-form label {
+    font-weight: normal;
+    margin: 2px 2%;
+    background-color: rgb(16, 143, 193);
+    color: white;
+    font-size: 16px;
+
+
+}
