@@ -1082,3 +1082,48 @@ font-size: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .16);
 }
+
+.navigation a {
+    text-decoration: none;
+    color: red;
+    font-weight: 600;
+}
+
+.nav-logo {
+    height: 21px;
+    width: 21px;
+}
+
+.login-button {
+    display: inline-flex;
+    border-radius: 3px;
+    border: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    background-color: hsla(0, 0%, 100%, .3);
+    box-shadow: none;
+    color: rgb(23, 22, 22);
+    line-height: 32px;
+    margin: 0 4px 0 0;
+    transition: .1s ease;
+    white-space: nowrap;
+    padding: 8px;
+    height: 20px;
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    z-index: 1;
+    right: 5%;
+    margin: 10px;
+    border: 2px solid black;
+    padding: 10px 20px 10px 30px;
+}
+
+.profile-dropdown button {
+    background-color: darkgray;
+    color: white
+}
