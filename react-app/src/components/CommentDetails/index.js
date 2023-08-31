@@ -103,6 +103,35 @@ export default function CommentDetails({ comment, formType, userId }) {
                 </div>
 
             </form>
+            <div className={`projects-list-container ${openLabelList ? "show" : "hidden"}`} >
+                {labels && Object.values(labels).map((label, idx) => (
+                    <>
+                        <div className='project-list-container'>
+                            <NavLink to={`/labels/${label.id}`} className="project-tasks-link">
+                                <div className='project-list-project-name'>
+                                    {label.label_name}
+                                </div>
+                            </NavLink>
+                            <div className='project-list-action-container'>
+                                <span  >
+                                    <OpenModalButton
+                                        className="project-action-button"
+                                        buttonText={<i className="fa-regular fa-pen-to-square" title='Edit label'>  </i>}
+                                        modalComponent={<LabelForm label={label} userId={sessionUser.id} formType="Update a Label" />} />
+                                </span>
+                                <span>
+                                    <OpenModalButton
+                                        className="project-action-button"
+                                        buttonText={<i className="fa-solid fa-trash-can" title='Delete label'>  </i>}
+                                        modalComponent={<DeleteLabelModal labelId={label.id} userId={sessionUser.id} />} />
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </>
+                ))}
+            </div>
 
         </>
 
