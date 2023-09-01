@@ -132,6 +132,29 @@ export default function CommentDetails({ comment, formType, userId }) {
                     </>
                 ))}
             </div>
+            <div className="welcome-page">
+                <div className='welcome-message'>
+                    <h1>
+                        Become organized and focused.
+                    </h1>
+                    <h2>
+                        Organize your work and life with MyTodoList
+                    </h2>
+                </div>
+
+
+                <div className="welcome-page-signup-button">
+                    <OpenModalButton
+
+                        buttonText="Start for free"
+                        modalComponent={<SignupFormModal />}
+                    />
+                </div>
+                <div className="welcome-page-background-pic">
+                    <img src={bgImgUrl} alt="" class="IntroSection_wrapperIllustration__ZTMyV"></img>
+
+                </div>
+            </div>
 
         </>
 
