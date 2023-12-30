@@ -944,3 +944,60 @@ a:visited {
     background-color: rgb(22, 189, 255);
     margin-left: 28px;
 }
+
+.project-editor-form {
+    background-color: rgb(16, 143, 193);
+    border-radius: 5px;
+    width: 350px;
+    padding: 2px 5px;
+    font-size: 16px;
+
+
+}
+
+
+.project-list-container {
+    width: 220px;
+}
+
+.welcome-message h2 {
+    font-weight: normal;
+}
+
+.welcome-page-signup-button button {
+    background-color: #046fa2;
+    color: white;
+    border-radius: 0.625rem;
+    min-height: 2.75rem;
+    font-weight: 700;
+    font: 1.25em sans-serif;
+    cursor: pointer;
+    justify-content: center;
+    min-width: 10rem;
+    outline: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: normal;
+    z-index: 0;
+    position: relative;
+    top: 40px;
+}
+
+
+.label-editor-form {
+    background-color: rgb(16, 143, 193);
+    border-radius: 5px;
+    width: 350px;
+    padding: 2px 5px;
+    font-size: 16px;
+
+}
+
+.label-editor-form label {
+    font-weight: normal;
+    margin: 2px 2%;
+    background-color: rgb(16, 143, 193);
+    color: white;
+    font-size: 16px;
+
+}
