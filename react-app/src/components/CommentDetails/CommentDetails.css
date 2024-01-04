@@ -1161,3 +1161,29 @@ a:visited {
     background-color: #fafafa;
     cursor: pointer;
 }
+
+.project-page-content-container {
+    display: flex;
+    flex-grow: 1;
+
+}
+
+.project-page-left-menu {
+    width: 340px;
+}
+
+.project-page-tasks-container {
+
+    width: 800px;
+    margin-left: 10px;
+
+}
+
+.project-page-content-container button {
+    cursor: pointer;
+}
+
+.project-page-task {
+    list-style: none;
+    /* margin: 3px 10%; */
+    border
