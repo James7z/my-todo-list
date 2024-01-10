@@ -1250,3 +1250,12 @@ a:visited {
     background-color: rgb(22, 189, 255);
     margin-left: 28px;
 }
+
+#cancel-logout-modal-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#confirm-logout-modal-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
+}
