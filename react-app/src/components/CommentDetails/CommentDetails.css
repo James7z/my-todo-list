@@ -1259,3 +1259,63 @@ a:visited {
     background-color: rgb(22, 189, 255);
     margin-left: 28px;
 }
+
+.single-task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2px 2px;
+
+}
+
+.home-page-tasks-container>ul {
+    padding-inline-start: 0px;
+}
+
+
+
+#check-task-button {
+    border: none;
+    background-color: white;
+    align-self: flex-start;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.single-task-content-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+
+
+.single-task-container button {
+    cursor: pointer;
+}
+
+.single-task-date-comment-container {
+
+    width: 100%;
+}
+
+.single-task-date-comment-container span {
+    margin: 0 5%;
+}
+
+.single-task-name-due-date-container {
+    width: 60%;
+    margin-left: 2%;
+}
+
+.single-task-description {
+    font-size: 12px;
+    padding: 2px 15px;
+    color: rgba(0, 0, 0, 0.56);
+    word-wrap: break-word;
+}
+
+.single-task-date-comment-container div {
+    cursor: pointer;
+}
