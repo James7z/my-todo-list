@@ -1600,3 +1600,41 @@ a:visited {
     background-color: rgb(22, 189, 255);
     margin-left: 28px;
 }
+
+/* #modal-content {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+} */
+
+#delete-modal-prompt {
+    text-align: center;
+    margin: 2% 5% 40px 5%;
+}
+
+#delete-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+
+#delete-task-button {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancel-delete-task-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#delete-task-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
+}
