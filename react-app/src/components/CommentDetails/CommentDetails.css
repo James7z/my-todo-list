@@ -1095,3 +1095,30 @@ a:visited {
     background-color: rgb(22, 189, 255);
     margin-left: 28px;
 }
+
+.project-page-content-container {
+    display: flex;
+    flex-grow: 1;
+
+}
+
+.project-page-left-menu {
+    width: 340px;
+}
+
+.project-page-tasks-container {
+
+    width: 800px;
+    margin-left: 10px;
+
+}
+
+.project-page-content-container button {
+    cursor: pointer;
+}
+
+.project-page-task {
+    list-style: none;
+    /* margin: 3px 10%; */
+    border-bottom: 1px solid #f0f0f0;
+}
