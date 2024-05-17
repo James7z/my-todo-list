@@ -1975,3 +1975,76 @@ label {
     background-color: rgb(22, 189, 255);
     margin-left: 28px;
 }
+
+/ .project-action-menu-list li {
+    cursor: pointer;
+}
+
+
+.project-action-menu-list {
+    list-style: none;
+}
+
+
+
+
+/* Delete project Modal  */
+#delete-project-modal-prompt {
+    text-align: center;
+    margin: 2% 5% 40px 5%;
+}
+
+#delete-project-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+#cancel-delete-project-button,
+#delete-project-button {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancel-delete-project-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#delete-project-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
+}
+
+
+/* Delete label Modal  */
+#delete-label-modal-prompt {
+    text-align: center;
+    margin: 2% 5% 40px 5%;
+}
+
+#delete-label-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+#cancel-delete-label-button,
+#delete-label-button {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancel-delete-label-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#delete-label-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
+}
