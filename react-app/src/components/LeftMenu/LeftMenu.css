@@ -2129,3 +2129,75 @@ label {
     background-color: rgb(22, 189, 255);
     margin-left: 28px;
 }
+
+.project-editor-footer-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 5px 15%;
+}
+
+
+.project-editor-footer button {
+    border-radius: 5px;
+    height: 2em;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 3px;
+}
+
+.project-editor-form select {
+    font-size: 16px;
+    width: 97%;
+    margin: 2px 2%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+#takes-up-space {
+    height: 80px;
+}
+
+.profile-dropdown {
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+#searchbar-container.hidden {
+    display: none;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 54px;
+    background-color: #046fa2;
+    border-bottom: 1px solid rgb(36, 36, 36);
+    z-index: 100;
+}
+
+#navbar-left {
+    display: flex;
+    align-items: center;
+    padding-left: 110px;
+}
+
+#logo {
+    font-family: 'Tilt Warp', cursive;
+    font-weight: bold;
+    font-size: 45px;
+    padding: 0px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+}
