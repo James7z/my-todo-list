@@ -344,3 +344,30 @@
     text-decoration: none;
     color: white;
 }
+
+/* For ProfileButton.js */
+#navbar-right-logged-in {
+    display: flex;
+    align-items: center;
+}
+
+#user-menu-button {
+    cursor: pointer;
+    color: rgb(168, 168, 168);
+    background: none;
+    border: none;
+}
+
+#user-menu-button:focus {
+    color: white
+}
+
+#user-menu-options {
+    position: absolute;
+    top: 50px;
+    right: 105px;
+    background-color: rgb(36, 36, 36);
+    width: 233px;
+    border-radius: 5px;
+    font-size: 15px;
+}
