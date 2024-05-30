@@ -371,3 +371,201 @@
     border-radius: 5px;
     font-size: 15px;
 }
+
+.project-editor-form label {
+    font-weight: normal;
+    margin: 2px 2%;
+    background-color: rgb(16, 143, 193);
+    color: white;
+    font-size: 16px;
+
+}
+
+
+.project-editor-input-fields {
+    margin: 10px 10px 10px;
+
+}
+
+.project-editor-input-fields input {
+    width: 91%;
+    margin: 2px 2%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+    font-size: 16px;
+
+}
+
+.project-editor-form select {
+    font-size: 16px;
+    width: 97%;
+    margin: 2px 2%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+
+
+.project-editor-footer-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 5px 15%;
+}
+
+
+.project-editor-footer button {
+    border-radius: 5px;
+    height: 2em;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 3px;
+}
+
+.log-in-form-container {
+    background-color: white;
+    border-radius: 8px;
+}
+
+
+.log-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white
+}
+
+.log-in-form ul {
+    margin-block-start: 2px;
+}
+
+.demo-user-login-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.login-input-container {
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.log-in-form label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.log-in-form input {
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 8px;
+    height: 40px;
+}
+
+.login-button {
+    width: 90%;
+    margin: 4px 5%;
+
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
+
+.demo-user-login-container button {
+    width: 90%;
+    margin: 5px 5%;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.sign-up-form ul {
+    margin-block-start: 2px;
+}
+
+.sign-up-form-container {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.sign-up-input-container {
+    border-radius: 10px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.sign-up-form label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sign-up-form input {
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 9px;
+    height: 35px;
+}
+
+.sign-up-button {
+    width: 90%;
+    margin: 5px 5%;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
+
+#logout-modal-container {
+    text-align: center;
+}
+
+#logout-modal-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#logout-modal-h2 {
+    color: blue;
+
+    margin: 2% 5% 40px 5%;
+}
+
+#logout-modal-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+#logout-modal-button-div div {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
