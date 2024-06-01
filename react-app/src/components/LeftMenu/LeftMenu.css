@@ -1704,3 +1704,32 @@ label {
     position: relative;
     top: 40px;
 }
+
+#logout-modal-container {
+    text-align: center;
+}
+
+#logout-modal-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#logout-modal-h2 {
+    color: blue;
+
+    margin: 2% 5% 40px 5%;
+}
+
+#logout-modal-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+#logout-modal-button-div div {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
