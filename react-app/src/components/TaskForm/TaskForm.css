@@ -569,3 +569,39 @@
     cursor: pointer;
     margin-bottom: 10px;
 }
+
+.welcome-message {
+    text-align: center;
+    margin: 15px 5px;
+    padding: 10px 10px 0;
+}
+
+
+.welcome-page {
+    text-align: center;
+}
+
+
+
+.welcome-message h2 {
+    font-weight: normal;
+}
+
+.welcome-page-signup-button button {
+    background-color: #046fa2;
+    color: white;
+    border-radius: 0.625rem;
+    min-height: 2.75rem;
+    font-weight: 700;
+    font: 1.25em sans-serif;
+    cursor: pointer;
+    justify-content: center;
+    min-width: 10rem;
+    outline: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: normal;
+    z-index: 0;
+    position: relative;
+    top: 40px;
+}
