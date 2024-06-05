@@ -605,3 +605,192 @@
     position: relative;
     top: 40px;
 }
+
+#navbar-left {
+    display: flex;
+    align-items: center;
+    padding-left: 110px;
+}
+
+#logo {
+    font-family: 'Tilt Warp', cursive;
+    font-weight: bold;
+    font-size: 45px;
+    padding: 0px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+#searchbar-container {
+    display: flex;
+    align-items: center;
+}
+
+
+#searchbar-container {
+    display: flex;
+    align-items: center;
+}
+
+#searchbar-container:focus-within * {
+    background-color: rgb(37, 37, 37);
+}
+
+#search-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(9, 0, 0);
+    background-color: rgb(180, 180, 180);
+    height: 35px;
+    width: 34px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    cursor: pointer;
+}
+
+#searchbar {
+    background: none;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 435px;
+    height: 25px;
+    background-color: rgb(202, 202, 202);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(59, 59, 59);
+}
+
+#searchbar::placeholder {
+    font-weight: 600;
+    color: rgb(59, 59, 59);
+}
+
+#navbar-right-logged-out {
+    display: flex;
+    align-items: center;
+    padding-right: 130px;
+}
+
+#session-options * {
+    background: none;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 15px;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#session-options *:first-child {
+    background-color: rgb(25, 218, 25);
+    color: black;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#session-options *:last-child {
+    background-color: rgb(31, 191, 240);
+    color: black;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+/* For ProfileButton.js */
+#navbar-right-logged-in {
+    display: flex;
+    align-items: center;
+}
+
+#user-menu-button {
+    cursor: pointer;
+    color: rgb(168, 168, 168);
+    background: none;
+    border: none;
+}
+
+#user-menu-button:focus {
+    color: white
+}
+
+#user-menu-options {
+    position: absolute;
+    top: 50px;
+    right: 105px;
+    background-color: rgb(36, 36, 36);
+    width: 233px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.welcome-message {
+    text-align: center;
+    margin: 15px 5px;
+    padding: 10px 10px 0;
+}
+
+
+.welcome-page {
+    text-align: center;
+}
+
+
+
+.welcome-message h2 {
+    font-weight: normal;
+}
+
+.welcome-page-signup-button button {
+    background-color: #046fa2;
+    color: white;
+    border-radius: 0.625rem;
+    min-height: 2.75rem;
+    font-weight: 700;
+    font: 1.25em sans-serif;
+    cursor: pointer;
+    justify-content: center;
+    min-width: 10rem;
+    outline: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: normal;
+    z-index: 0;
+    position: relative;
+    top: 40px;
+}
+
+#logout-modal-container {
+    text-align: center;
+}
+
+#logout-modal-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#logout-modal-h2 {
+    color: blue;
+
+    margin: 2% 5% 40px 5%;
+}
+
+#logout-modal-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+#logout-modal-button-div div {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
