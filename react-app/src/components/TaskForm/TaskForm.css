@@ -794,3 +794,221 @@
     cursor: pointer;
     margin-bottom: 10px;
 }
+
+.project-page-content-container {
+    display: flex;
+    flex-grow: 1;
+
+}
+
+.project-page-left-menu {
+    width: 340px;
+}
+
+.project-page-tasks-container {
+
+    width: 800px;
+    margin-left: 10px;
+
+}
+
+.project-page-content-container button {
+    cursor: pointer;
+}
+
+.project-page-task {
+    list-style: none;
+    /* margin: 3px 10%; */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/*************/
+#delete-label-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+#cancel-delete-label-button,
+#delete-label-button {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancel-delete-label-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#delete-label-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
+}
+
+/**/
+#left-menu {
+    display: flex;
+    background-color: #fafafa;
+    ;
+}
+
+.project-tasks-link {
+    text-decoration: none;
+}
+
+.project-tasks-link a,
+a:visited {
+    text-decoration: none;
+    /* color: blue; */
+}
+
+.resize_handle {
+    box-sizing: border-box;
+    width: 5px;
+    margin-left: -2px;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: transparent;
+    cursor: col-resize;
+}
+
+.project-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 224px;
+}
+
+.project-title-container i {
+    cursor: pointer;
+}
+
+.project-title-container h3 {
+    display: inline;
+}
+
+.project-title-container i {
+    margin: 0 2px;
+    width: 15px;
+    height: 15px;
+}
+
+
+.project-list-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 2px;
+    max-width: 220px;
+}
+
+.project-list-project-name {
+    word-wrap: break-word;
+    max-width: 160px;
+}
+
+.project-action-button {
+    border: none;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+/* .project-action-menu-container {
+    /* width: 24px;
+    height: 24px;
+    position: relative;
+    left: 20px;
+    list-style: none;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08);
+
+
+position: absolute;
+
+list-style: none;
+border-radius: 3px;
+border: 1px solid #ddd;
+box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08);
+width: 150px;
+max-height: 80px;
+
+background-color: white;
+font-size: 15px;
+
+}
+*/
+*/ .project-action-menu-list li {
+    cursor: pointer;
+}
+
+
+.project-action-menu-list {
+    list-style: none;
+}
+
+
+
+
+/* Delete project Modal  */
+#delete-project-modal-prompt {
+    text-align: center;
+    margin: 2% 5% 40px 5%;
+}
+
+#delete-project-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+#cancel-delete-project-button,
+#delete-project-button {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancel-delete-project-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#delete-project-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
+}
+
+
+/* Delete label Modal  */
+#delete-label-modal-prompt {
+    text-align: center;
+    margin: 2% 5% 40px 5%;
+}
+
+#delete-label-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+#cancel-delete-label-button,
+#delete-label-button {
+    color: black;
+    border-radius: 3px;
+    padding: 8px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancel-delete-label-button {
+    background-color: rgb(146, 146, 146);
+}
+
+#delete-label-button {
+    background-color: rgb(22, 189, 255);
+    margin-left: 28px;
+}
