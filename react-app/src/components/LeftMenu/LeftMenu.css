@@ -391,3 +391,69 @@ font-size: 15px;
     color: white;
     background-color: skyblue;
 }
+
+.log-in-form-container {
+    background-color: white;
+    border-radius: 8px;
+}
+
+
+.log-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white
+}
+
+.log-in-form ul {
+    margin-block-start: 2px;
+}
+
+.demo-user-login-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.login-input-container {
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.log-in-form label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.log-in-form input {
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 8px;
+    height: 40px;
+}
+
+.login-button {
+    width: 90%;
+    margin: 4px 5%;
+
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
+
+.demo-user-login-container button {
+    width: 90%;
+    margin: 5px 5%;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
