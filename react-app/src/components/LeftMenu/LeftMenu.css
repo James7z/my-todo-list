@@ -1364,3 +1364,52 @@ font-size: 15px;
     border-color: #246fe0;
     color: #246fe0;
 }
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.sign-up-form ul {
+    margin-block-start: 2px;
+}
+
+.sign-up-form-container {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.sign-up-input-container {
+    border-radius: 10px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.sign-up-form label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sign-up-form input {
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 9px;
+    height: 35px;
+}
+
+.sign-up-button {
+    width: 90%;
+    margin: 5px 5%;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
