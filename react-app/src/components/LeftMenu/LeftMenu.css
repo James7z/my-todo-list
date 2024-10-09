@@ -1364,3 +1364,142 @@ font-size: 15px;
     border-color: #246fe0;
     color: #246fe0;
 }
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.sign-up-form ul {
+    margin-block-start: 2px;
+}
+
+.sign-up-form-container {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.sign-up-input-container {
+    border-radius: 10px;
+    border: 1px solid #eee;
+    padding: 8px;
+    padding-bottom: 4px;
+}
+
+.sign-up-form label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sign-up-form input {
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 9px;
+    height: 35px;
+}
+
+.sign-up-button {
+    width: 90%;
+    margin: 5px 5%;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: skyblue;
+}
+
+.single-task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2px 2px;
+
+}
+
+.home-page-tasks-container>ul {
+    padding-inline-start: 0px;
+}
+
+
+
+#check-task-button {
+    border: none;
+    background-color: white;
+    align-self: flex-start;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.single-task-content-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+
+
+.single-task-container button {
+    cursor: pointer;
+}
+
+.single-task-date-comment-container {
+
+    width: 100%;
+}
+
+.single-task-date-comment-container span {
+    margin: 0 5%;
+}
+
+.single-task-name-due-date-container {
+    width: 60%;
+    margin-left: 2%;
+}
+
+.single-task-description {
+    font-size: 12px;
+    padding: 2px 15px;
+    color: rgba(0, 0, 0, 0.56);
+    word-wrap: break-word;
+}
+
+.single-task-date-comment-container div {
+    cursor: pointer;
+}
+
+.task-checkbox-circle {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dcdcdc;
+    color: #dcdcdc;
+    border-width: 2px;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    padding: 2px;
+
+}
+
+.task-checkbox-circle.priority-1 {
+    border-color: #d1453b;
+    color: #d1453b;
+}
+
+.task-checkbox-circle.priority-2 {
+    border-color: #eb8909;
+    color: #eb8909;
+}
+
+.task-checkbox-circle.priority-3 {
+    border-color: #246fe0;
+    color: #246fe0;
+}
