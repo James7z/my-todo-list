@@ -1645,3 +1645,38 @@ a:visited {
     border-radius: 10px;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .16);
 }
+
+/* TODO Add site wide styles */
+
+body {
+    font-size: 14pt;
+    font-weight: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+
+}
+
+h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    width: 100%;
+    height: 70px;
+    padding: 20px 0;
+
+    text-align: center;
+}
+
+h2,
+h3 {
+    font-size: 18pt;
+    font-weight: bold;
+    justify-content: center;
+}
+
+label {
+    background-color: rgb(212, 237, 237);
+    color: rgb(46, 3, 3);
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 2px;
+
+}
